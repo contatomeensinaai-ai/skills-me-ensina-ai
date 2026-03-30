@@ -48,10 +48,10 @@ const EventBanner: React.FC<EventBannerProps> = ({ variant = 'default' }) => {
         <h3 style={{ fontSize: 'clamp(24px, 4vw, 32px)', fontWeight: 900, letterSpacing: '-0.03em', marginBottom: 8 }}>
           A Nova Virada da IA
         </h3>
-        <p style={{ fontSize: 14, color: 'var(--text-muted-custom)', marginBottom: 4 }}>
+        <p className="text-destructive-foreground" style={{ fontSize: 14, marginBottom: 4 }}>
           30 de Abril &bull; Boteco do Manolo &bull; Framingham, MA
         </p>
-        <p style={{ fontSize: 13, color: 'var(--text-faint)', marginBottom: 24, maxWidth: 500, marginLeft: 'auto', marginRight: 'auto' }}>
+        <p className="text-destructive-foreground" style={{ fontSize: 13, marginBottom: 24, maxWidth: 500, marginLeft: 'auto', marginRight: 'auto' }}>
           {isFinal
             ? '50 empresários. 1 noite. A oportunidade de transformar seu negócio com IA. Inclui jantar.'
             : 'Descubra como a IA pode organizar e automatizar sua empresa inteira. 50 vagas.'}
