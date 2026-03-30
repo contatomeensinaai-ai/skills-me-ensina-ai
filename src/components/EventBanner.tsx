@@ -51,7 +51,7 @@ const EventBanner: React.FC<EventBannerProps> = ({ variant = 'default' }) => {
         <p className="text-destructive-foreground" style={{ fontSize: 14, marginBottom: 4 }}>
           30 de Abril &bull; Boteco do Manolo &bull; Framingham, MA
         </p>
-        <p className="text-destructive-foreground" style={{ fontSize: 13, marginBottom: 24, maxWidth: 500, marginLeft: 'auto', marginRight: 'auto' }}>
+        <p className="text-destructive-foreground" style={{ fontSize: 13, marginBottom: 32, maxWidth: 500, marginLeft: 'auto', marginRight: 'auto' }}>
           {isFinal
             ? '50 empresários. 1 noite. A oportunidade de transformar seu negócio com IA. Inclui jantar.'
             : 'Descubra como a IA pode organizar e automatizar sua empresa inteira. 50 vagas.'}
