@@ -132,3 +132,9 @@
 ::-webkit-scrollbar { width: 5px; height: 5px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; }
+
+/* Responsive grids */
+@media (min-width: 640px) {
+  .skills-grid { grid-template-columns: 1fr 1fr !important; }
+  .tips-grid { grid-template-columns: 1fr 1fr 1fr !important; }
+}
