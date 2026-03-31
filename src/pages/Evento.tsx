@@ -250,7 +250,7 @@ const Evento: React.FC = () => {
             <h2 style={{ fontSize: 24, fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 16, textAlign: 'center' }}>
               Daqui a 12 meses, você vai lembrar dessa noite. A pergunta é: como?
             </h2>
-            <p style={{ fontSize: 14, color: bodyText, lineHeight: 1.9 }}>
+             <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.75)', lineHeight: 1.9 }}>
               Ou você vai lembrar como a noite em que você entendeu tudo e montou seu time de IA antes de todo mundo. Ou você vai lembrar como a oportunidade que você deixou passar enquanto esperava o "momento certo". A IA não vai desacelerar. As ferramentas não vão ficar mais simples. O custo de não agir aumenta todo mês.
             </p>
             <p style={{ fontSize: 15, fontWeight: 700, color: '#fff', marginTop: 16, textAlign: 'center' }}>
