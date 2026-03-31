@@ -4,7 +4,7 @@ import { BookOpen, Monitor, Building2, HelpCircle, Mic, Eye, Map, CalendarCheck,
 
 const cardBg = 'rgba(255,255,255,0.06)';
 const cardBorder = 'rgba(255,255,255,0.12)';
-const bodyText = 'rgba(255,255,255,0.55)';
+const bodyText = 'rgba(255,255,255,0.7)';
 const divider = { width: '100%', height: 1, background: 'rgba(255,255,255,0.06)', margin: '20px 0 48px' };
 
 const CTAButton = () => (
@@ -85,7 +85,7 @@ const Evento: React.FC = () => {
             background: 'rgba(245,158,11,0.04)', border: '1px solid rgba(245,158,11,0.1)',
             marginBottom: 24
           }}>
-            <p style={{ fontSize: 13, color: bodyText }}>30 de Abril de 2026 | Boteco do Manolo | Framingham, MA</p>
+            <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.7)' }}>30 de Abril de 2026 | Boteco do Manolo | Framingham, MA</p>
           </div>
 
           <div style={{ display: 'block' }}>
@@ -104,7 +104,7 @@ const Evento: React.FC = () => {
               GARANTIR MINHA VAGA
             </a>
           </div>
-          <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.55)', marginTop: 12, lineHeight: 1.8 }}>
+          <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.6)', marginTop: 12, lineHeight: 1.8 }}>
             $62 por pessoa &bull; Jantar + refrigerante inclusos<br />
             Apenas 50 vagas
           </p>
@@ -135,7 +135,7 @@ const Evento: React.FC = () => {
           <h2 style={{ fontSize: 28, fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 12, textAlign: 'center' }}>
             A IA mudou 3 vezes em 4 anos. Seu negócio acompanhou alguma delas?
           </h2>
-          <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.5)', textAlign: 'center', marginBottom: 24, maxWidth: 560, marginLeft: 'auto', marginRight: 'auto', lineHeight: 1.7 }}>
+          <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.6)', textAlign: 'center', marginBottom: 24, maxWidth: 560, marginLeft: 'auto', marginRight: 'auto', lineHeight: 1.7 }}>
             O mundo mudou. E quem entender primeiro, sai na frente.
           </p>
           <div style={{ display: 'grid', gap: 14 }}>
@@ -160,7 +160,7 @@ const Evento: React.FC = () => {
                 </div>
                 <div>
                   <h3 style={{ fontSize: 16, fontWeight: 700, marginBottom: 4, color: i === 2 ? 'var(--amber)' : '#fff' }}>{item.label}</h3>
-                  <p style={{ fontSize: 13, color: bodyText, lineHeight: 1.7 }}>{item.desc}</p>
+                  <p style={{ fontSize: 14, color: bodyText, lineHeight: 1.8 }}>{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -177,8 +177,7 @@ const Evento: React.FC = () => {
             padding: '28px 24px', borderRadius: 18,
             background: 'rgba(245,158,11,0.03)', border: '1px solid rgba(245,158,11,0.08)',
           }}>
-            <p style={{ fontSize: 14, color: bodyText, lineHeight: 1.9 }}>
-              Toda grande mudança na história dos negócios teve um momento exato em que a oportunidade era absurda e o custo de entrada era baixo. A internet em 2000. O Instagram em 2015. O e-commerce na pandemia. Quem entrou cedo dominou. Quem esperou pagou 10 vezes mais pelo mesmo resultado. Com a inteligência artificial está acontecendo a mesma coisa. Agora.
+            <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.75)', lineHeight: 1.9 }}>
             </p>
             <p style={{ fontSize: 15, fontWeight: 700, color: 'var(--amber)', marginTop: 12 }}>
               Nessa noite, você vai entender tudo isso. De forma simples. Sem jargão. Sem complicação.
@@ -202,8 +201,8 @@ const Evento: React.FC = () => {
               }}>
                 <IconCircle>{item.icon}</IconCircle>
                 <div>
-                  <h3 style={{ fontSize: 15, fontWeight: 700, marginBottom: 4 }}>{item.title}</h3>
-                  <p style={{ fontSize: 13, color: bodyText, lineHeight: 1.7 }}>{item.desc}</p>
+                  <h3 style={{ fontSize: 16, fontWeight: 700, marginBottom: 6 }}>{item.title}</h3>
+                  <p style={{ fontSize: 14, color: bodyText, lineHeight: 1.8 }}>{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -229,7 +228,7 @@ const Evento: React.FC = () => {
               <h2 style={{ fontSize: 26, fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 16 }}>
                 50 empresários. Uma mesa. Uma conversa que vale mais que um ano de conteúdo online.
               </h2>
-              <p style={{ fontSize: 14, color: bodyText, lineHeight: 1.9, maxWidth: 560, marginLeft: 'auto', marginRight: 'auto', marginBottom: 20 }}>
+              <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.75)', lineHeight: 1.9, maxWidth: 560, marginLeft: 'auto', marginRight: 'auto', marginBottom: 20 }}>
                 Existe um tipo de conexão que só acontece presencialmente, olho no olho, com gente que está no mesmo nível de decisão que você. Nessa noite, você vai dividir a mesa com 50 empresários que estão fazendo a mesma pergunta: como usar a IA pra escalar sem depender de mais gente? As respostas que você vai ouvir nessa mesa podem mudar a direção do seu negócio nos próximos 12 meses.
               </p>
               <p style={{ fontSize: 15, fontWeight: 700, color: 'var(--amber)' }}>
@@ -251,7 +250,7 @@ const Evento: React.FC = () => {
             <h2 style={{ fontSize: 24, fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 16, textAlign: 'center' }}>
               Daqui a 12 meses, você vai lembrar dessa noite. A pergunta é: como?
             </h2>
-            <p style={{ fontSize: 14, color: bodyText, lineHeight: 1.9 }}>
+             <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.75)', lineHeight: 1.9 }}>
               Ou você vai lembrar como a noite em que você entendeu tudo e montou seu time de IA antes de todo mundo. Ou você vai lembrar como a oportunidade que você deixou passar enquanto esperava o "momento certo". A IA não vai desacelerar. As ferramentas não vão ficar mais simples. O custo de não agir aumenta todo mês.
             </p>
             <p style={{ fontSize: 15, fontWeight: 700, color: '#fff', marginTop: 16, textAlign: 'center' }}>
@@ -322,15 +321,15 @@ const Evento: React.FC = () => {
                 border: '1px solid rgba(255,255,255,0.15)',
                 background: 'rgba(255,255,255,0.08)',
               }}>
-                <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.75)', flex: 1, paddingRight: 16 }}>{row.item}</p>
-                <span style={{ fontSize: 13, fontWeight: 700, color: 'rgba(255,255,255,0.35)', textDecoration: 'line-through', whiteSpace: 'nowrap' }}>{row.valor}</span>
+                <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.8)', flex: 1, paddingRight: 16 }}>{row.item}</p>
+                <span style={{ fontSize: 13, fontWeight: 700, color: 'rgba(255,255,255,0.4)', textDecoration: 'line-through', whiteSpace: 'nowrap' }}>{row.valor}</span>
               </div>
             ))}
           </div>
           <div style={{ textAlign: 'center', marginTop: 20 }}>
-            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.45)', textDecoration: 'line-through' }}>Valor total: mais de $640</p>
+            <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.5)', textDecoration: 'line-through' }}>Valor total: mais de $640</p>
             <p style={{ fontSize: 36, fontWeight: 900, color: 'var(--amber)', marginTop: 4 }}>Seu investimento: $62</p>
-            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', marginTop: 4 }}>Menos do que um tanque de gasolina.</p>
+            <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.6)', marginTop: 4 }}>Menos do que um tanque de gasolina.</p>
           </div>
         </section>
 
@@ -354,7 +353,7 @@ const Evento: React.FC = () => {
                 background: cardBg,
               }}>
                 <h3 style={{ fontSize: 15, fontWeight: 700, marginBottom: 6 }}>{item.title}</h3>
-                <p style={{ fontSize: 13, color: bodyText, lineHeight: 1.7 }}>{item.desc}</p>
+                <p style={{ fontSize: 14, color: bodyText, lineHeight: 1.8 }}>{item.desc}</p>
               </div>
             ))}
           </div>
@@ -384,11 +383,11 @@ const Evento: React.FC = () => {
                 background: cardBg,
                 cursor: 'pointer'
               }}>
-                <summary style={{ fontSize: 14, fontWeight: 700, listStyle: 'none', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <summary style={{ fontSize: 15, fontWeight: 700, listStyle: 'none', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   {item.q}
                   <span style={{ color: '#10b981', fontSize: 18, flexShrink: 0, marginLeft: 12 }}>+</span>
                 </summary>
-                <p style={{ fontSize: 13, color: bodyText, lineHeight: 1.7, marginTop: 12 }}>{item.a}</p>
+                <p style={{ fontSize: 14, color: bodyText, lineHeight: 1.8, marginTop: 12 }}>{item.a}</p>
               </details>
             ))}
           </div>
@@ -413,8 +412,7 @@ const Evento: React.FC = () => {
             }} />
 
             <div style={{ position: 'relative', zIndex: 1 }}>
-              <p style={{ fontSize: 14, color: bodyText, lineHeight: 1.9, maxWidth: 520, marginLeft: 'auto', marginRight: 'auto', marginBottom: 24 }}>
-                Você veio pra esse país pra construir algo maior. Trabalhou mais do que qualquer pessoa ao seu redor. Fez o que ninguém achava possível. Agora existe uma ferramenta que pode fazer seu negócio render o dobro sem você trabalhar o dobro. A única coisa que falta é você decidir usar.
+              <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.75)', lineHeight: 1.9, maxWidth: 520, marginLeft: 'auto', marginRight: 'auto', marginBottom: 24 }}>
               </p>
 
               <h2 style={{ fontSize: 'clamp(24px, 4vw, 32px)', fontWeight: 900, letterSpacing: '-0.03em', marginBottom: 8 }}>
