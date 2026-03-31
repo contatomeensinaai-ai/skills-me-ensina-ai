@@ -425,7 +425,7 @@ const Evento: React.FC = () => {
                 $62
               </p>
               <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', marginBottom: 28 }}>
-                Jantar + bebida inclusos
+                Jantar + refrigerante inclusos
               </p>
 
               <a
