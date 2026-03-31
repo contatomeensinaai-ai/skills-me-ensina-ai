@@ -321,8 +321,8 @@ const Evento: React.FC = () => {
                 border: '1px solid rgba(255,255,255,0.15)',
                 background: 'rgba(255,255,255,0.08)',
               }}>
-                <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.75)', flex: 1, paddingRight: 16 }}>{row.item}</p>
-                <span style={{ fontSize: 13, fontWeight: 700, color: 'rgba(255,255,255,0.35)', textDecoration: 'line-through', whiteSpace: 'nowrap' }}>{row.valor}</span>
+                <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.8)', flex: 1, paddingRight: 16 }}>{row.item}</p>
+                <span style={{ fontSize: 13, fontWeight: 700, color: 'rgba(255,255,255,0.4)', textDecoration: 'line-through', whiteSpace: 'nowrap' }}>{row.valor}</span>
               </div>
             ))}
           </div>
