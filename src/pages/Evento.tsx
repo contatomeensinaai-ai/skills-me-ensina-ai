@@ -1,4 +1,5 @@
 import React from 'react';
+import fabioImg from '@/assets/fabio-borges.jpg';
 import { BookOpen, Monitor, Building2, HelpCircle, Mic } from 'lucide-react';
 
 const cardBg = 'rgba(255,255,255,0.06)';
