@@ -14,10 +14,13 @@ const GateSection: React.FC<GateSectionProps> = ({ onSubmit }) => {
     if (!name.trim() || !phone.trim()) return;
     setLoading(true);
     try {
+      const params = new URLSearchParams();
+      params.append('name', name.trim());
+      params.append('phone', phone.trim());
       await fetch('https://services.leadconnectorhq.com/hooks/yiFVAZdDuHVfYsh1D4pt/webhook-trigger/76a78c81-7bce-4913-8e22-365fc56f5ffc', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: name.trim(), phone: phone.trim() }),
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: params.toString(),
         mode: 'no-cors',
       });
     } catch (err) {
