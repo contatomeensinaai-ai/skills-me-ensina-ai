@@ -412,8 +412,7 @@ const Evento: React.FC = () => {
             }} />
 
             <div style={{ position: 'relative', zIndex: 1 }}>
-              <p style={{ fontSize: 14, color: bodyText, lineHeight: 1.9, maxWidth: 520, marginLeft: 'auto', marginRight: 'auto', marginBottom: 24 }}>
-                Você veio pra esse país pra construir algo maior. Trabalhou mais do que qualquer pessoa ao seu redor. Fez o que ninguém achava possível. Agora existe uma ferramenta que pode fazer seu negócio render o dobro sem você trabalhar o dobro. A única coisa que falta é você decidir usar.
+              <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.75)', lineHeight: 1.9, maxWidth: 520, marginLeft: 'auto', marginRight: 'auto', marginBottom: 24 }}>
               </p>
 
               <h2 style={{ fontSize: 'clamp(24px, 4vw, 32px)', fontWeight: 900, letterSpacing: '-0.03em', marginBottom: 8 }}>
