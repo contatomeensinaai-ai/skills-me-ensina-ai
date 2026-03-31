@@ -423,7 +423,7 @@ const Evento: React.FC = () => {
               <p style={{ fontSize: 40, fontWeight: 900, color: 'var(--amber)', marginBottom: 4 }}>
                 $62
               </p>
-              <p style={{ fontSize: 13, color: 'var(--text-faint)', marginBottom: 28 }}>
+              <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', marginBottom: 28 }}>
                 Jantar + bebida inclusos
               </p>
 
