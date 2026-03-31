@@ -72,7 +72,7 @@ const Evento: React.FC = () => {
             fontSize: 'clamp(32px, 5.5vw, 50px)', fontWeight: 900,
             letterSpacing: '-0.03em', lineHeight: 1.08, marginBottom: 20
           }}>
-            A Maior Oportunidade de Colocar a Inteligência Artificial pra Trabalhar no Seu Negócio é Agora
+            A Maior Oportunidade de Colocar a Inteligência Artificial pra Trabalhar no Seu Negócio é Agora!
           </h1>
 
           <p style={{ fontSize: 16, color: bodyText, marginBottom: 32, maxWidth: 560, marginLeft: 'auto', marginRight: 'auto', lineHeight: 1.7 }}>
