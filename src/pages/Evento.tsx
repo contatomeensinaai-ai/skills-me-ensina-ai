@@ -177,8 +177,7 @@ const Evento: React.FC = () => {
             padding: '28px 24px', borderRadius: 18,
             background: 'rgba(245,158,11,0.03)', border: '1px solid rgba(245,158,11,0.08)',
           }}>
-            <p style={{ fontSize: 14, color: bodyText, lineHeight: 1.9 }}>
-              Toda grande mudança na história dos negócios teve um momento exato em que a oportunidade era absurda e o custo de entrada era baixo. A internet em 2000. O Instagram em 2015. O e-commerce na pandemia. Quem entrou cedo dominou. Quem esperou pagou 10 vezes mais pelo mesmo resultado. Com a inteligência artificial está acontecendo a mesma coisa. Agora.
+            <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.75)', lineHeight: 1.9 }}>
             </p>
             <p style={{ fontSize: 15, fontWeight: 700, color: 'var(--amber)', marginTop: 12 }}>
               Nessa noite, você vai entender tudo isso. De forma simples. Sem jargão. Sem complicação.
