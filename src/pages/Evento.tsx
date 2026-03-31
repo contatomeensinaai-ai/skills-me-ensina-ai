@@ -383,11 +383,11 @@ const Evento: React.FC = () => {
                 background: cardBg,
                 cursor: 'pointer'
               }}>
-                <summary style={{ fontSize: 14, fontWeight: 700, listStyle: 'none', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <summary style={{ fontSize: 15, fontWeight: 700, listStyle: 'none', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   {item.q}
                   <span style={{ color: '#10b981', fontSize: 18, flexShrink: 0, marginLeft: 12 }}>+</span>
                 </summary>
-                <p style={{ fontSize: 13, color: bodyText, lineHeight: 1.7, marginTop: 12 }}>{item.a}</p>
+                <p style={{ fontSize: 14, color: bodyText, lineHeight: 1.8, marginTop: 12 }}>{item.a}</p>
               </details>
             ))}
           </div>
