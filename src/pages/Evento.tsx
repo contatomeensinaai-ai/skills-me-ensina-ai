@@ -1,4 +1,5 @@
 import React from 'react';
+import fabioImg from '@/assets/fabio-borges.jpg';
 import { BookOpen, Monitor, Building2, HelpCircle, Mic } from 'lucide-react';
 
 const cardBg = 'rgba(255,255,255,0.06)';
@@ -272,14 +273,16 @@ const Evento: React.FC = () => {
             background: cardBg,
             textAlign: 'center',
           }}>
-            <div style={{
-              width: 120, height: 120, borderRadius: '50%',
-              background: 'rgba(245,158,11,0.08)', border: '2px solid rgba(245,158,11,0.15)',
-              margin: '0 auto 20px', display: 'flex', alignItems: 'center', justifyContent: 'center',
-              fontSize: 11, color: 'var(--text-faint)'
-            }}>
-              FOTO
-            </div>
+            <img
+              src={fabioImg}
+              alt="Fábio Borges"
+              style={{
+                width: 120, height: 120, borderRadius: '50%',
+                objectFit: 'cover',
+                border: '2px solid rgba(245,158,11,0.15)',
+                margin: '0 auto 20px', display: 'block',
+              }}
+            />
 
             <h3 style={{ fontSize: 20, fontWeight: 800, marginBottom: 4 }}>Fábio Borges</h3>
             <p style={{ fontSize: 12, color: 'var(--amber)', fontWeight: 600, marginBottom: 16 }}>@fabioborges_ia</p>
