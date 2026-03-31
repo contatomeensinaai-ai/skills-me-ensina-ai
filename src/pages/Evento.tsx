@@ -85,7 +85,7 @@ const Evento: React.FC = () => {
             background: 'rgba(245,158,11,0.04)', border: '1px solid rgba(245,158,11,0.1)',
             marginBottom: 24
           }}>
-            <p style={{ fontSize: 13, color: bodyText }}>30 de Abril de 2026 | Boteco do Manolo | Framingham, MA</p>
+            <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.7)' }}>30 de Abril de 2026 | Boteco do Manolo | Framingham, MA</p>
           </div>
 
           <div style={{ display: 'block' }}>
