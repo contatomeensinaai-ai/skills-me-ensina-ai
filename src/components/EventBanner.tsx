@@ -57,7 +57,7 @@ const EventBanner: React.FC<EventBannerProps> = ({ variant = 'default' }) => {
             : 'Descubra como a IA pode organizar e automatizar sua empresa inteira. 50 vagas.'}
         </p>
         <a
-          href="#evento"
+          href="/evento"
           style={{
             display: 'inline-flex', alignItems: 'center', gap: 8,
             padding: '16px 36px', borderRadius: 14,
