@@ -313,14 +313,14 @@ const Evento: React.FC = () => {
               { item: 'Demonstração ao vivo: como a IA atende clientes, cria conteúdo e organiza sua empresa em minutos', valor: '$197' },
               { item: 'Acesso ao grupo exclusivo de participantes (pós-evento)', valor: '$97' },
             ].map((row, i) => (
-              <div key={i} style={{
+            <div key={i} style={{
                 display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-                padding: '14px 20px', borderRadius: 12,
-                border: `1px solid ${cardBorder}`,
-                background: cardBg,
+                padding: '16px 22px', borderRadius: 12,
+                border: '1px solid rgba(255,255,255,0.15)',
+                background: 'rgba(255,255,255,0.08)',
               }}>
-                <p style={{ fontSize: 13, color: bodyText, flex: 1, paddingRight: 16 }}>{row.item}</p>
-                <span style={{ fontSize: 13, fontWeight: 700, color: 'var(--text-faint)', textDecoration: 'line-through', whiteSpace: 'nowrap' }}>{row.valor}</span>
+                <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.75)', flex: 1, paddingRight: 16 }}>{row.item}</p>
+                <span style={{ fontSize: 13, fontWeight: 700, color: 'rgba(255,255,255,0.35)', textDecoration: 'line-through', whiteSpace: 'nowrap' }}>{row.valor}</span>
               </div>
             ))}
           </div>
