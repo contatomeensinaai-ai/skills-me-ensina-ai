@@ -228,7 +228,7 @@ const Evento: React.FC = () => {
               <h2 style={{ fontSize: 26, fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 16 }}>
                 50 empresários. Uma mesa. Uma conversa que vale mais que um ano de conteúdo online.
               </h2>
-              <p style={{ fontSize: 14, color: bodyText, lineHeight: 1.9, maxWidth: 560, marginLeft: 'auto', marginRight: 'auto', marginBottom: 20 }}>
+              <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.75)', lineHeight: 1.9, maxWidth: 560, marginLeft: 'auto', marginRight: 'auto', marginBottom: 20 }}>
                 Existe um tipo de conexão que só acontece presencialmente, olho no olho, com gente que está no mesmo nível de decisão que você. Nessa noite, você vai dividir a mesa com 50 empresários que estão fazendo a mesma pergunta: como usar a IA pra escalar sem depender de mais gente? As respostas que você vai ouvir nessa mesa podem mudar a direção do seu negócio nos próximos 12 meses.
               </p>
               <p style={{ fontSize: 15, fontWeight: 700, color: 'var(--amber)' }}>
