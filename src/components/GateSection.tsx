@@ -9,13 +9,21 @@ const GateSection: React.FC<GateSectionProps> = ({ onSubmit }) => {
   const [phone, setPhone] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name.trim() || !phone.trim()) return;
     setLoading(true);
-    setTimeout(() => {
-      onSubmit();
-    }, 800);
+    try {
+      await fetch('https://services.leadconnectorhq.com/hooks/yiFVAZdDuHVfYsh1D4pt/webhook-trigger/2991bc2a-46a7-4643-907e-a82bb5a7627c', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: name.trim(), phone: phone.trim() }),
+        mode: 'no-cors',
+      });
+    } catch (err) {
+      console.error('Webhook error:', err);
+    }
+    onSubmit();
   };
 
   return (
