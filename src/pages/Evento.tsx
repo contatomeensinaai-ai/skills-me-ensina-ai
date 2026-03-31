@@ -115,15 +115,15 @@ const Evento: React.FC = () => {
         {/* ===== NARRATIVA ===== */}
         <section className="animate-up delay-1" style={{ marginBottom: 48 }}>
           <div style={{
-            padding: '32px 28px', borderRadius: 20,
-            border: `1px solid ${cardBorder}`,
-            background: cardBg,
+            padding: '36px 32px', borderRadius: 20,
+            borderLeft: '3px solid var(--amber)',
+            background: 'rgba(245,158,11,0.04)',
           }}>
-            <p style={{ fontSize: 15, color: bodyText, lineHeight: 2, fontStyle: 'italic' }}>
+            <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.85)', lineHeight: 2, fontStyle: 'italic', letterSpacing: '0.01em' }}>
               Você acordou hoje antes das 5 da manhã. Como acorda todo dia. Checou as mensagens de clientes, confirmou a agenda, separou o material, dirigiu até o primeiro serviço. Entre uma ligação e outra, tentou resolver o problema do funcionário que faltou, respondeu um orçamento pelo celular no sinal vermelho e ainda lembrou que precisa pagar o seguro do truck.
             </p>
-            <p style={{ fontSize: 15, color: bodyText, lineHeight: 2, fontStyle: 'italic', marginTop: 16 }}>
-              Quando finalmente para, já escureceu. Você veio pros Estados Unidos pra construir algo maior. E construiu. Com as próprias mãos. Mas no fundo, você sabe: do jeito que está, não escala. Você é o dono, o gerente, o vendedor, o financeiro e o marketing da sua empresa. E o dia continua tendo só 24 horas.
+            <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.85)', lineHeight: 2, fontStyle: 'italic', letterSpacing: '0.01em', marginTop: 20 }}>
+              Quando finalmente para, já escureceu. Você veio pros Estados Unidos pra construir algo maior. E construiu. <span style={{ color: 'var(--amber)', fontWeight: 600 }}>Com as próprias mãos.</span> Mas no fundo, você sabe: do jeito que está, não escala. Você é o dono, o gerente, o vendedor, o financeiro e o marketing da sua empresa. E o dia continua tendo só 24 horas.
             </p>
           </div>
         </section>
