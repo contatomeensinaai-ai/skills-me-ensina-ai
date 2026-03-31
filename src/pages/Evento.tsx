@@ -104,7 +104,7 @@ const Evento: React.FC = () => {
               GARANTIR MINHA VAGA
             </a>
           </div>
-          <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.55)', marginTop: 12, lineHeight: 1.8 }}>
+          <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.6)', marginTop: 12, lineHeight: 1.8 }}>
             $62 por pessoa &bull; Jantar + refrigerante inclusos<br />
             Apenas 50 vagas
           </p>
