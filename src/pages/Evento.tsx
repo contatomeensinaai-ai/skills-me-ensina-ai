@@ -345,7 +345,7 @@ const Evento: React.FC = () => {
               { title: 'O dono de negócio local', desc: 'Empresa de limpeza, construção, estética, imóveis. Faz tudo sozinho e precisa de ajuda que não custa uma fortuna.' },
               { title: 'O gestor que virou faz-tudo', desc: 'Cuida do marketing, financeiro, atendimento, proposta comercial. Precisa multiplicar seu tempo sem multiplicar seus custos.' },
               { title: 'O profissional que virou empreendedor', desc: 'Sabe entregar o serviço mas não sabe vender. Precisa de presença profissional e clientes chegando sem depender de indicação.' },
-              { title: 'Quem quer sair na frente', desc: 'Seus concorrentes ainda não usam Inteligência Artificial de verdade. Quem começar agora vai dominar o mercado local.' },
+              { title: 'Quem quer sair na frente', desc: 'A maioria dos empresários da sua região ainda não usa Inteligência Artificial de verdade. Quem começar agora vai dominar o mercado local.' },
             ].map((item, i) => (
               <div key={i} style={{
                 padding: '20px 24px', borderRadius: 16,
