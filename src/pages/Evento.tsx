@@ -135,7 +135,7 @@ const Evento: React.FC = () => {
           <h2 style={{ fontSize: 28, fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 12, textAlign: 'center' }}>
             A IA mudou 3 vezes em 4 anos. Seu negócio acompanhou alguma delas?
           </h2>
-          <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.5)', textAlign: 'center', marginBottom: 24, maxWidth: 560, marginLeft: 'auto', marginRight: 'auto', lineHeight: 1.7 }}>
+          <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.6)', textAlign: 'center', marginBottom: 24, maxWidth: 560, marginLeft: 'auto', marginRight: 'auto', lineHeight: 1.7 }}>
             O mundo mudou. E quem entender primeiro, sai na frente.
           </p>
           <div style={{ display: 'grid', gap: 14 }}>
