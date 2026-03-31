@@ -221,6 +221,64 @@ const PortalSection: React.FC = () => {
         {/* Event Banner Final */}
         <EventBanner variant="final" />
 
+        {/* CTA Agendamento — pra quem não é de MA */}
+        <div className="animate-up delay-5" style={{
+          position: 'relative', overflow: 'hidden', borderRadius: 20,
+          border: '1px solid rgba(34,211,238,0.15)',
+          padding: '40px 32px', textAlign: 'center', marginBottom: 48
+        }}>
+          <div style={{
+            position: 'absolute', inset: 0,
+            background: 'linear-gradient(135deg, rgba(34,211,238,0.04), rgba(16,185,129,0.02), rgba(34,211,238,0.04))'
+          }} />
+          <div style={{
+            position: 'absolute', top: 0, left: 0, width: 400, height: 400,
+            background: 'radial-gradient(circle, rgba(34,211,238,0.06), transparent 70%)'
+          }} />
+
+          <div style={{ position: 'relative', zIndex: 1 }}>
+            <span style={{
+              display: 'inline-flex', alignItems: 'center', gap: 6,
+              padding: '6px 14px', borderRadius: 100,
+              background: 'rgba(34,211,238,0.1)', border: '1px solid rgba(34,211,238,0.15)',
+              color: '#22d3ee', fontSize: 10, fontWeight: 700,
+              letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 16
+            }}>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+              </svg>
+              Não mora em Massachusetts?
+            </span>
+
+            <h3 style={{ fontSize: 'clamp(22px, 3.5vw, 28px)', fontWeight: 900, letterSpacing: '-0.03em', marginBottom: 8 }}>
+              Automatize sua empresa de qualquer lugar
+            </h3>
+            <p style={{ fontSize: 13, color: 'var(--text-muted-custom)', marginBottom: 24, maxWidth: 480, marginLeft: 'auto', marginRight: 'auto', lineHeight: 1.7 }}>
+              Fazemos uma call, identificamos os gargalos do seu negócio e instalamos toda a estrutura de IA remotamente. Você não precisa entender nada de tecnologia.
+            </p>
+
+            <a
+              href="https://wa.me/message/XXXX"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'inline-flex', alignItems: 'center', gap: 8,
+                padding: '16px 36px', borderRadius: 14,
+                background: 'linear-gradient(135deg, #22d3ee, #10b981)',
+                color: '#000', fontFamily: "'Satoshi', sans-serif", fontSize: 13,
+                fontWeight: 800, letterSpacing: '0.06em', border: 'none',
+                cursor: 'pointer', textDecoration: 'none', transition: 'all 0.3s',
+                boxShadow: '0 0 40px -8px rgba(34,211,238,0.3)'
+              }}
+            >
+              QUERO AGENDAR MINHA CALL →
+            </a>
+            <p style={{ fontSize: 11, color: 'var(--text-faint)', marginTop: 12 }}>
+              Atendimento personalizado &bull; Instalação remota &bull; Suporte incluso
+            </p>
+          </div>
+        </div>
+
         {/* Footer */}
         <footer style={{ textAlign: 'center', padding: '40px 0 20px', borderTop: '1px solid var(--card-border-custom)', marginTop: 48 }}>
           <p style={{ fontSize: 11, color: 'var(--text-faint)' }}>Me Ensina AI &bull; Skills Claude Code para Empresários</p>
