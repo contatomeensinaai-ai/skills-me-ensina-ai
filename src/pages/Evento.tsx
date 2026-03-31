@@ -353,7 +353,7 @@ const Evento: React.FC = () => {
                 background: cardBg,
               }}>
                 <h3 style={{ fontSize: 15, fontWeight: 700, marginBottom: 6 }}>{item.title}</h3>
-                <p style={{ fontSize: 13, color: bodyText, lineHeight: 1.7 }}>{item.desc}</p>
+                <p style={{ fontSize: 14, color: bodyText, lineHeight: 1.8 }}>{item.desc}</p>
               </div>
             ))}
           </div>
