@@ -448,7 +448,7 @@ const Evento: React.FC = () => {
 
               <div style={{ display: 'flex', justifyContent: 'center', gap: 24, flexWrap: 'wrap', marginTop: 16 }}>
                 {['50 vagas limitadas', 'Jantar incluso', 'Networking exclusivo'].map((item, i) => (
-                  <span key={i} style={{ fontSize: 11, color: 'var(--text-faint)', display: 'flex', alignItems: 'center', gap: 4 }}>
+                  <span key={i} style={{ fontSize: 11, color: 'rgba(255,255,255,0.5)', display: 'flex', alignItems: 'center', gap: 4 }}>
                     <span style={{ color: 'var(--emerald)' }}>✓</span> {item}
                   </span>
                 ))}
