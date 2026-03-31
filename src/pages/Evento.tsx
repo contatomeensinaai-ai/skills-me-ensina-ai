@@ -4,7 +4,7 @@ import { BookOpen, Monitor, Building2, HelpCircle, Mic, Eye, Map, CalendarCheck,
 
 const cardBg = 'rgba(255,255,255,0.06)';
 const cardBorder = 'rgba(255,255,255,0.12)';
-const bodyText = 'rgba(255,255,255,0.55)';
+const bodyText = 'rgba(255,255,255,0.7)';
 const divider = { width: '100%', height: 1, background: 'rgba(255,255,255,0.06)', margin: '20px 0 48px' };
 
 const CTAButton = () => (
