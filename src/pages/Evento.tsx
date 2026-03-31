@@ -1,6 +1,6 @@
 import React from 'react';
 import fabioImg from '@/assets/fabio-borges.jpg';
-import { BookOpen, Monitor, Building2, HelpCircle, Mic } from 'lucide-react';
+import { BookOpen, Monitor, Building2, HelpCircle, Mic, Eye, Map, CalendarCheck, MessageCircle, Users } from 'lucide-react';
 
 const cardBg = 'rgba(255,255,255,0.06)';
 const cardBorder = 'rgba(255,255,255,0.12)';
@@ -37,11 +37,11 @@ const IconCircle = ({ children }: { children: React.ReactNode }) => (
 );
 
 const agendaItems = [
-  { icon: <BookOpen size={20} color="var(--amber)" />, title: 'A linha do tempo da IA (sem complicação)', desc: 'Fábio vai mostrar de forma visual e direta o que a IA fazia antes e o que faz hoje. Por que 2026 é o ano que separa quem cresce de quem fica pra trás. Tudo explicado pra qualquer pessoa entender.' },
-  { icon: <Monitor size={20} color="var(--amber)" />, title: 'Demonstração ao vivo numa empresa real', desc: 'Nada de slide bonito e promessa vazia. Você vai ver, na hora, a Inteligência Artificial trabalhando dentro de uma empresa real. Respondendo cliente. Criando conteúdo. Organizando a operação. Ao vivo, na sua frente.' },
-  { icon: <Building2 size={20} color="var(--amber)" />, title: 'O que a IA já resolve no seu tipo de negócio', desc: 'Limpeza, construção, estética, imóveis. Exemplos práticos do que empresários como você já estão fazendo pra economizar tempo, atender mais rápido e parar de depender só de indicação.' },
-  { icon: <HelpCircle size={20} color="var(--amber)" />, title: 'As 3 perguntas que todo empresário precisa responder em 2026', desc: 'Existem 3 decisões que vão definir se o seu negócio cresce ou encolhe nos próximos 12 meses. Você vai sair dessa noite sabendo exatamente quais são e o que fazer.' },
-  { icon: <Mic size={20} color="var(--amber)" />, title: 'Sessão aberta de perguntas', desc: 'Pode perguntar qualquer coisa. Sobre o seu negócio, sobre como aplicar no seu dia a dia. Sem julgamento. A ideia é você sair de lá com clareza total.' },
+  { icon: <Eye size={20} color="var(--amber)" />, title: 'Uma demonstração que você nunca viu', desc: 'Você vai ver, ao vivo, a inteligência artificial executando tarefas reais de negócio. Não é teoria. Não é slide. É a IA funcionando na sua frente, resolvendo problemas que consomem horas do seu dia.' },
+  { icon: <Map size={20} color="var(--amber)" />, title: 'O mapa completo do seu time de IA', desc: 'Você vai entender exatamente quais funções do seu negócio a IA já consegue assumir hoje. Marketing, financeiro, atendimento, conteúdo, estratégia. Um por um, com clareza.' },
+  { icon: <CalendarCheck size={20} color="var(--amber)" />, title: 'O plano pra sair de lá com tudo montado', desc: 'Não é um evento onde você sai inspirado e esquece na segunda-feira. Você vai sair com um plano concreto de como colocar a IA pra funcionar na sua empresa na mesma semana.' },
+  { icon: <MessageCircle size={20} color="var(--amber)" />, title: 'Acesso direto ao Fábio Borges por uma noite inteira', desc: 'Perguntas, dúvidas, desafios específicos do seu negócio. Sem filtro, sem roteiro, sem limite de tempo. Uma noite inteira pra você tirar tudo que precisa diretamente com quem já ajudou mais de 1.000 empresários.' },
+  { icon: <Users size={20} color="var(--amber)" />, title: 'Jantar e networking com 50 empresários', desc: 'A mesa é a mesma. A comida é a mesma. Mas a conversa não é qualquer conversa. São 50 empresários que já decidiram que não vão ficar parados enquanto o mundo muda.' },
 ];
 
 const Evento: React.FC = () => {
@@ -72,11 +72,11 @@ const Evento: React.FC = () => {
             fontSize: 'clamp(32px, 5.5vw, 50px)', fontWeight: 900,
             letterSpacing: '-0.03em', lineHeight: 1.08, marginBottom: 20
           }}>
-            Seus concorrentes já estão usando Inteligência Artificial. Você vai ficar pra trás?
+            A Maior Oportunidade de Colocar a Inteligência Artificial pra Trabalhar no Seu Negócio é Agora
           </h1>
 
           <p style={{ fontSize: 16, color: bodyText, marginBottom: 32, maxWidth: 560, marginLeft: 'auto', marginRight: 'auto', lineHeight: 1.7 }}>
-            No dia 30 de abril, em Framingham, você vai ver com seus próprios olhos o que a IA já faz por empresas como a sua. Sem teoria. Sem enrolação. Uma noite que pode mudar a forma como você toca seu negócio.
+            Quem montar seu time de IA primeiro vai dominar os próximos 10 anos. Nessa noite, você vai ver como.
           </p>
 
           <div style={{
@@ -85,8 +85,7 @@ const Evento: React.FC = () => {
             background: 'rgba(245,158,11,0.04)', border: '1px solid rgba(245,158,11,0.1)',
             marginBottom: 24
           }}>
-            <p style={{ fontSize: 13, color: bodyText }}>30 de Abril de 2026</p>
-            <p style={{ fontSize: 13, color: bodyText }}>Boteco do Manolo &bull; Framingham, MA</p>
+            <p style={{ fontSize: 13, color: bodyText }}>30 de Abril de 2026 | Boteco do Manolo | Framingham, MA</p>
           </div>
 
           <div style={{ display: 'block' }}>
@@ -112,7 +111,7 @@ const Evento: React.FC = () => {
 
         <div style={divider} />
 
-        {/* ===== NARRATIVA DO HERÓI ===== */}
+        {/* ===== NARRATIVA ===== */}
         <section className="animate-up delay-1" style={{ marginBottom: 48 }}>
           <div style={{
             padding: '32px 28px', borderRadius: 20,
@@ -130,36 +129,36 @@ const Evento: React.FC = () => {
 
         <div style={divider} />
 
-        {/* ===== O QUE MUDOU ===== */}
+        {/* ===== TIMELINE ===== */}
         <section className="animate-up delay-1" style={{ marginBottom: 48 }}>
           <h2 style={{ fontSize: 28, fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 12, textAlign: 'center' }}>
-            Você ainda acha que Inteligência Artificial é coisa de filme?
+            A IA mudou 3 vezes em 4 anos. Seu negócio acompanhou alguma delas?
           </h2>
           <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.5)', textAlign: 'center', marginBottom: 24, maxWidth: 560, marginLeft: 'auto', marginRight: 'auto', lineHeight: 1.7 }}>
             O mundo mudou. E quem entender primeiro, sai na frente.
           </p>
           <div style={{ display: 'grid', gap: 14 }}>
             {[
-              { year: '2022', title: 'A IA era curiosidade', desc: 'Um brinquedo que escrevia textos engraçados e gerava imagens estranhas. A maioria dos empresários ignorou.' },
-              { year: '2024', title: 'A IA começou a trabalhar', desc: 'Já respondia clientes, criava propostas, organizava agenda. Quem prestou atenção saiu na frente.' },
-              { year: '2026', title: 'A IA virou funcionária', desc: 'Ela cria orçamentos, responde leads, publica conteúdo, organiza sua operação. Funciona 24 horas. Não pede folga. Não reclama. E custa menos que um almoço por dia.' },
+              { year: '2022', label: 'O CHOQUE', desc: 'O ChatGPT apareceu e o mundo inteiro parou pra olhar. Pela primeira vez, qualquer pessoa podia conversar com uma inteligência artificial. Milhões experimentaram. Poucos entenderam o que aquilo significava de verdade pra um negócio.' },
+              { year: '2024', label: 'A VIRADA SILENCIOSA', desc: 'A IA parou de ser brinquedo e virou ferramenta de trabalho. Empresas começaram a cortar custos, acelerar processos e entregar mais rápido. Quem prestou atenção saiu na frente. Quem ignorou não sentiu nada. Ainda.' },
+              { year: '2026', label: 'A SEPARAÇÃO', desc: 'Agora a IA não é mais uma ferramenta. É um time inteiro. Ela cria conteúdo, responde clientes, organiza financeiro, monta estratégia de venda. Os empresários que montaram esse time estão operando em outro nível. Os que não montaram estão trabalhando o dobro pra metade do resultado.' },
             ].map((item, i) => (
               <div key={i} style={{
                 display: 'flex', gap: 16, padding: '22px 24px', borderRadius: 18,
-                border: `1px solid ${cardBorder}`,
-                background: cardBg,
+                border: `1px solid ${i === 2 ? 'rgba(245,158,11,0.2)' : cardBorder}`,
+                background: i === 2 ? 'rgba(245,158,11,0.04)' : cardBg,
               }}>
                 <div style={{
                   flexShrink: 0, padding: '6px 14px', borderRadius: 8,
                   background: i === 2 ? 'rgba(16,185,129,0.12)' : 'rgba(255,255,255,0.04)',
                   border: `1px solid ${i === 2 ? 'rgba(16,185,129,0.25)' : 'rgba(255,255,255,0.08)'}`,
-                  color: i === 2 ? 'var(--emerald)' : 'var(--text-faint)',
+                  color: i === 2 ? '#10b981' : 'rgba(255,255,255,0.4)',
                   fontSize: 13, fontWeight: 700, height: 'fit-content'
                 }}>
                   {item.year}
                 </div>
                 <div>
-                  <h3 style={{ fontSize: 16, fontWeight: 700, marginBottom: 4 }}>{item.title}</h3>
+                  <h3 style={{ fontSize: 16, fontWeight: 700, marginBottom: 4, color: i === 2 ? 'var(--amber)' : '#fff' }}>{item.label}</h3>
                   <p style={{ fontSize: 13, color: bodyText, lineHeight: 1.7 }}>{item.desc}</p>
                 </div>
               </div>
@@ -178,7 +177,7 @@ const Evento: React.FC = () => {
             background: 'rgba(245,158,11,0.03)', border: '1px solid rgba(245,158,11,0.08)',
           }}>
             <p style={{ fontSize: 14, color: bodyText, lineHeight: 1.9 }}>
-              A diferença entre quem vai crescer nos próximos 12 meses e quem vai continuar preso no operacional não é dinheiro, não é sorte, não é diploma. É informação. É saber o que já existe e que você ainda não está usando.
+              Toda grande mudança na história dos negócios teve um momento exato em que a oportunidade era absurda e o custo de entrada era baixo. A internet em 2000. O Instagram em 2015. O e-commerce na pandemia. Quem entrou cedo dominou. Quem esperou pagou 10 vezes mais pelo mesmo resultado. Com a inteligência artificial está acontecendo a mesma coisa. Agora.
             </p>
             <p style={{ fontSize: 15, fontWeight: 700, color: 'var(--amber)', marginTop: 12 }}>
               Nessa noite, você vai entender tudo isso. De forma simples. Sem jargão. Sem complicação.
@@ -188,10 +187,10 @@ const Evento: React.FC = () => {
 
         <div style={divider} />
 
-        {/* ===== O QUE VAI ACONTECER ===== */}
+        {/* ===== O QUE VAI VIVENCIAR ===== */}
         <section className="animate-up delay-2" style={{ marginBottom: 48 }}>
           <h2 style={{ fontSize: 28, fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 24, textAlign: 'center' }}>
-            O que vai acontecer no dia 30 de abril
+            O que você vai vivenciar nessa noite
           </h2>
           <div style={{ display: 'grid', gap: 12 }}>
             {agendaItems.map((item, i) => (
@@ -214,7 +213,7 @@ const Evento: React.FC = () => {
 
         <div style={divider} />
 
-        {/* ===== JANTAR + NETWORKING ===== */}
+        {/* ===== NETWORKING ===== */}
         <section className="animate-up delay-3" style={{ marginBottom: 48 }}>
           <div style={{
             position: 'relative', overflow: 'hidden', borderRadius: 20,
@@ -227,16 +226,13 @@ const Evento: React.FC = () => {
             }} />
             <div style={{ position: 'relative', zIndex: 1 }}>
               <h2 style={{ fontSize: 26, fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 16 }}>
-                Isso não é só um evento. É uma experiência.
+                50 empresários. Uma mesa. Uma conversa que vale mais que um ano de conteúdo online.
               </h2>
               <p style={{ fontSize: 14, color: bodyText, lineHeight: 1.9, maxWidth: 560, marginLeft: 'auto', marginRight: 'auto', marginBottom: 20 }}>
-                Seu ticket inclui jantar completo no Boteco do Manolo + bebida não alcoólica. Mas o jantar é o detalhe. O que realmente importa é com QUEM você vai estar sentado.
-              </p>
-              <p style={{ fontSize: 14, color: bodyText, lineHeight: 1.9, maxWidth: 560, marginLeft: 'auto', marginRight: 'auto', marginBottom: 20 }}>
-                50 empresários brasileiros nos EUA. Donos de negócios reais. Gente que está fazendo acontecer e quer ir mais longe. Enquanto uns estão reclamando do mercado, esse grupo vai estar planejando o próximo passo.
+                Existe um tipo de conexão que só acontece presencialmente, olho no olho, com gente que está no mesmo nível de decisão que você. Nessa noite, você vai dividir a mesa com 50 empresários que estão fazendo a mesma pergunta: como usar a IA pra escalar sem depender de mais gente? As respostas que você vai ouvir nessa mesa podem mudar a direção do seu negócio nos próximos 12 meses.
               </p>
               <p style={{ fontSize: 15, fontWeight: 700, color: 'var(--amber)' }}>
-                Negócios nascem em jantares assim. Parcerias surgem em conversas assim. Venha pelo conhecimento. Fique pelas conexões.
+                Jantar completo incluso no ingresso.
               </p>
             </div>
           </div>
@@ -251,11 +247,14 @@ const Evento: React.FC = () => {
             border: `1px solid ${cardBorder}`,
             background: cardBg,
           }}>
+            <h2 style={{ fontSize: 24, fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 16, textAlign: 'center' }}>
+              Daqui a 12 meses, você vai lembrar dessa noite. A pergunta é: como?
+            </h2>
             <p style={{ fontSize: 14, color: bodyText, lineHeight: 1.9 }}>
-              Enquanto você lê isso, outros empresários brasileiros nos Estados Unidos já estão se movimentando. Já estão buscando formas de atender mais clientes sem contratar mais gente. Já estão descobrindo como parar de depender só de indicação.
+              Ou você vai lembrar como a noite em que você entendeu tudo e montou seu time de IA antes de todo mundo. Ou você vai lembrar como a oportunidade que você deixou passar enquanto esperava o "momento certo". A IA não vai desacelerar. As ferramentas não vão ficar mais simples. O custo de não agir aumenta todo mês.
             </p>
-            <p style={{ fontSize: 14, color: bodyText, lineHeight: 1.9, marginTop: 12 }}>
-              No dia 30 de abril, esses empresários vão estar todos na mesma sala. A cadeira vai estar ocupada. A pergunta é: <strong style={{ color: '#fff' }}>por quem? Por você, que precisa dessa virada? Ou pelo seu concorrente, que também recebeu esse convite?</strong>
+            <p style={{ fontSize: 15, fontWeight: 700, color: '#fff', marginTop: 16, textAlign: 'center' }}>
+              50 vagas. Quando acabar, acabou.
             </p>
           </div>
         </section>
@@ -311,12 +310,12 @@ const Evento: React.FC = () => {
           <div style={{ display: 'grid', gap: 10 }}>
             {[
               { item: 'Jantar completo em restaurante exclusivo', valor: '$50' },
-              { item: '3+ horas de imersão prática em IA para negócios com Fábio Borges', valor: '$1.500' },
+              { item: '3+ horas de imersão prática em IA para negócios', valor: '$297' },
               { item: 'Networking presencial com 50 empresários brasileiros da região', valor: 'Inestimável' },
-              { item: 'Demonstração ao vivo: como a IA atende clientes, cria conteúdo e organiza sua empresa em minutos', valor: '$197' },
+              { item: 'Demonstração ao vivo: como a IA atende clientes, cria conteúdo e organiza sua empresa', valor: '$197' },
               { item: 'Acesso ao grupo exclusivo de participantes (pós-evento)', valor: '$97' },
             ].map((row, i) => (
-            <div key={i} style={{
+              <div key={i} style={{
                 display: 'flex', justifyContent: 'space-between', alignItems: 'center',
                 padding: '16px 22px', borderRadius: 12,
                 border: '1px solid rgba(255,255,255,0.15)',
@@ -328,9 +327,9 @@ const Evento: React.FC = () => {
             ))}
           </div>
           <div style={{ textAlign: 'center', marginTop: 20 }}>
-            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.45)', textDecoration: 'line-through' }}>Valor total: mais de $2.100</p>
+            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.45)', textDecoration: 'line-through' }}>Valor total: mais de $640</p>
             <p style={{ fontSize: 36, fontWeight: 900, color: 'var(--amber)', marginTop: 4 }}>Seu investimento: $62</p>
-            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', marginTop: 4 }}>Menos do que um tanque de gasolina. A diferença é que esse investimento pode mudar a direção do seu negócio.</p>
+            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', marginTop: 4 }}>Menos do que um tanque de gasolina.</p>
           </div>
         </section>
 
@@ -371,12 +370,12 @@ const Evento: React.FC = () => {
           </h2>
           <div style={{ display: 'grid', gap: 10 }}>
             {[
-              { q: 'Eu não entendo nada de tecnologia. Esse evento é pra mim?', a: 'Esse evento foi criado EXATAMENTE pra quem não entende nada de IA. Não é evento de tecnologia. É evento de NEGÓCIO. Tudo será explicado de forma simples. Se você sabe usar o celular, você vai entender tudo.' },
-              { q: 'O que está incluso no valor de $62?', a: 'Jantar completo no Boteco do Manolo + bebida não alcoólica (refrigerante, água ou suco) + o evento inteiro com Fábio Borges + networking com outros empresários.' },
-              { q: 'Posso levar meu sócio ou minha esposa?', a: 'Pode, mas cada pessoa precisa do seu próprio ticket. E honestamente? Trazer seu sócio é uma das melhores decisões que você pode tomar. Vocês vão sair alinhados.' },
-              { q: 'Preciso levar notebook ou celular especial?', a: 'Não precisa levar nada. Só vem, assiste, pergunta e aproveita. Se quiser anotar no celular, fique à vontade.' },
-              { q: 'E se eu comprar e não puder ir?', a: 'O ticket não é reembolsável, mas você pode transferir pra outra pessoa. Com apenas 50 vagas, nossa recomendação é: se você tem interesse, garanta agora. Quando acabar, acabou.' },
-              { q: 'Onde fico sabendo de mais detalhes?', a: 'Siga @fabioborges_ia no Instagram. Qualquer atualização será comunicada por lá e também por SMS para quem comprou o ticket.' },
+              { q: 'Preciso entender de tecnologia?', a: 'Não. O evento é feito pra empresários, não pra gente de tecnologia. Se você sabe usar o celular, você consegue acompanhar tudo.' },
+              { q: 'O que está incluso no ingresso?', a: 'Acesso ao evento completo, jantar e todas as demonstrações ao vivo. Tudo por $62.' },
+              { q: 'Posso levar meu sócio?', a: 'Pode e deve. Cada pessoa precisa do seu ingresso individual.' },
+              { q: 'Preciso levar notebook?', a: 'Não precisa levar nada. Só vem, assiste, pergunta e aproveita.' },
+              { q: 'E se eu não puder ir?', a: 'O evento é presencial e não será transmitido online. São 50 vagas e a experiência só acontece pra quem estiver na sala.' },
+              { q: 'Vai ter venda de curso?', a: 'O evento é uma experiência completa. Você vai sair de lá com conhecimento e um plano de ação, não com uma oferta de vendas.' },
             ].map((item, i) => (
               <details key={i} style={{
                 padding: '18px 22px', borderRadius: 14,
@@ -386,7 +385,7 @@ const Evento: React.FC = () => {
               }}>
                 <summary style={{ fontSize: 14, fontWeight: 700, listStyle: 'none', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   {item.q}
-                  <span style={{ color: 'var(--emerald)', fontSize: 18, flexShrink: 0, marginLeft: 12 }}>+</span>
+                  <span style={{ color: '#10b981', fontSize: 18, flexShrink: 0, marginLeft: 12 }}>+</span>
                 </summary>
                 <p style={{ fontSize: 13, color: bodyText, lineHeight: 1.7, marginTop: 12 }}>{item.a}</p>
               </details>
@@ -396,7 +395,7 @@ const Evento: React.FC = () => {
 
         <div style={divider} />
 
-        {/* ===== FECHAMENTO EMOCIONAL + CTA FINAL ===== */}
+        {/* ===== CTA FINAL ===== */}
         <section id="comprar" className="animate-up delay-5" style={{ marginBottom: 48 }}>
           <div style={{
             position: 'relative', overflow: 'hidden', borderRadius: 20,
@@ -414,7 +413,7 @@ const Evento: React.FC = () => {
 
             <div style={{ position: 'relative', zIndex: 1 }}>
               <p style={{ fontSize: 14, color: bodyText, lineHeight: 1.9, maxWidth: 520, marginLeft: 'auto', marginRight: 'auto', marginBottom: 24 }}>
-                Você não veio pros Estados Unidos pra ficar no mesmo lugar. Você deixou gente que ama pra trás. Recomeçou do zero num país que não fala a sua língua. Aprendeu na dor. E construiu algo que muita gente nem teve coragem de tentar. Agora existe um próximo capítulo. E ele não exige que você trabalhe mais. Exige que você saiba o que está disponível.
+                Você veio pra esse país pra construir algo maior. Trabalhou mais do que qualquer pessoa ao seu redor. Fez o que ninguém achava possível. Agora existe uma ferramenta que pode fazer seu negócio render o dobro sem você trabalhar o dobro. A única coisa que falta é você decidir usar.
               </p>
 
               <h2 style={{ fontSize: 'clamp(24px, 4vw, 32px)', fontWeight: 900, letterSpacing: '-0.03em', marginBottom: 8 }}>
@@ -452,7 +451,7 @@ const Evento: React.FC = () => {
               <div style={{ display: 'flex', justifyContent: 'center', gap: 24, flexWrap: 'wrap', marginTop: 16 }}>
                 {['50 vagas limitadas', 'Jantar incluso', 'Networking exclusivo'].map((item, i) => (
                   <span key={i} style={{ fontSize: 11, color: 'rgba(255,255,255,0.5)', display: 'flex', alignItems: 'center', gap: 4 }}>
-                    <span style={{ color: 'var(--emerald)' }}>✓</span> {item}
+                    <span style={{ color: '#10b981' }}>✓</span> {item}
                   </span>
                 ))}
               </div>
@@ -462,8 +461,8 @@ const Evento: React.FC = () => {
 
         {/* Footer */}
         <footer style={{ textAlign: 'center', padding: '40px 0 20px', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-          <p style={{ fontSize: 11, color: 'var(--text-faint)' }}>Me Ensina AI &bull; A Nova Virada da IA &bull; 30 de Abril 2026</p>
-          <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.08)', marginTop: 4 }}>@fabioborges_ia</p>
+          <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.4)' }}>Me Ensina AI &bull; A Nova Virada da IA &bull; 30 de Abril 2026</p>
+          <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.25)', marginTop: 4 }}>@fabioborges_ia</p>
         </footer>
       </div>
     </div>
