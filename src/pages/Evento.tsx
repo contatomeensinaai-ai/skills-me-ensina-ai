@@ -325,9 +325,9 @@ const Evento: React.FC = () => {
             ))}
           </div>
           <div style={{ textAlign: 'center', marginTop: 20 }}>
-            <p style={{ fontSize: 13, color: 'var(--text-faint)', textDecoration: 'line-through' }}>Valor total: mais de $2.100</p>
+            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.45)', textDecoration: 'line-through' }}>Valor total: mais de $2.100</p>
             <p style={{ fontSize: 36, fontWeight: 900, color: 'var(--amber)', marginTop: 4 }}>Seu investimento: $62</p>
-            <p style={{ fontSize: 13, color: 'var(--text-faint)', marginTop: 4 }}>Menos do que um tanque de gasolina. A diferença é que esse investimento pode mudar a direção do seu negócio.</p>
+            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', marginTop: 4 }}>Menos do que um tanque de gasolina. A diferença é que esse investimento pode mudar a direção do seu negócio.</p>
           </div>
         </section>
 
