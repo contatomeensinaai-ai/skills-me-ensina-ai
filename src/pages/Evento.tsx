@@ -105,7 +105,7 @@ const Evento: React.FC = () => {
             </a>
           </div>
           <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.5)', marginTop: 12 }}>
-            $62 por pessoa &bull; Jantar + bebida inclusos &bull; Apenas 50 vagas
+            $62 por pessoa &bull; Jantar + refrigerante inclusos &bull; Apenas 50 vagas
           </p>
         </section>
 
