@@ -201,8 +201,8 @@ const Evento: React.FC = () => {
               }}>
                 <IconCircle>{item.icon}</IconCircle>
                 <div>
-                  <h3 style={{ fontSize: 15, fontWeight: 700, marginBottom: 4 }}>{item.title}</h3>
-                  <p style={{ fontSize: 13, color: bodyText, lineHeight: 1.7 }}>{item.desc}</p>
+                  <h3 style={{ fontSize: 16, fontWeight: 700, marginBottom: 6 }}>{item.title}</h3>
+                  <p style={{ fontSize: 14, color: bodyText, lineHeight: 1.8 }}>{item.desc}</p>
                 </div>
               </div>
             ))}
