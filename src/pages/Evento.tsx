@@ -160,7 +160,7 @@ const Evento: React.FC = () => {
                 </div>
                 <div>
                   <h3 style={{ fontSize: 16, fontWeight: 700, marginBottom: 4, color: i === 2 ? 'var(--amber)' : '#fff' }}>{item.label}</h3>
-                  <p style={{ fontSize: 13, color: bodyText, lineHeight: 1.7 }}>{item.desc}</p>
+                  <p style={{ fontSize: 14, color: bodyText, lineHeight: 1.8 }}>{item.desc}</p>
                 </div>
               </div>
             ))}
