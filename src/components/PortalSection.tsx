@@ -258,7 +258,7 @@ const PortalSection: React.FC = () => {
             </p>
 
             <a
-              href="https://wa.me/message/XXXX"
+              href="https://wa.me/15088488718?text=Ol%C3%A1%20F%C3%A1bio%2C%20vi%20o%20portal%20de%20Skills%20e%20quero%20agendar%20uma%20call%20para%20automatizar%20minha%20empresa."
               target="_blank"
               rel="noopener noreferrer"
               style={{
