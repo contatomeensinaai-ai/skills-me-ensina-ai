@@ -104,7 +104,7 @@ const Evento: React.FC = () => {
               GARANTIR MINHA VAGA
             </a>
           </div>
-          <p style={{ fontSize: 12, color: 'var(--text-faint)', marginTop: 12 }}>
+          <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.5)', marginTop: 12 }}>
             $62 por pessoa &bull; Jantar + bebida inclusos &bull; Apenas 50 vagas
           </p>
         </section>
@@ -134,7 +134,7 @@ const Evento: React.FC = () => {
           <h2 style={{ fontSize: 28, fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 12, textAlign: 'center' }}>
             Você ainda acha que Inteligência Artificial é coisa de filme?
           </h2>
-          <p style={{ fontSize: 14, color: 'var(--text-faint)', textAlign: 'center', marginBottom: 24, maxWidth: 560, marginLeft: 'auto', marginRight: 'auto', lineHeight: 1.7 }}>
+          <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.5)', textAlign: 'center', marginBottom: 24, maxWidth: 560, marginLeft: 'auto', marginRight: 'auto', lineHeight: 1.7 }}>
             O mundo mudou. E quem entender primeiro, sai na frente.
           </p>
           <div style={{ display: 'grid', gap: 14 }}>
@@ -325,9 +325,9 @@ const Evento: React.FC = () => {
             ))}
           </div>
           <div style={{ textAlign: 'center', marginTop: 20 }}>
-            <p style={{ fontSize: 13, color: 'var(--text-faint)', textDecoration: 'line-through' }}>Valor total: mais de $2.100</p>
+            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.45)', textDecoration: 'line-through' }}>Valor total: mais de $2.100</p>
             <p style={{ fontSize: 36, fontWeight: 900, color: 'var(--amber)', marginTop: 4 }}>Seu investimento: $62</p>
-            <p style={{ fontSize: 13, color: 'var(--text-faint)', marginTop: 4 }}>Menos do que um tanque de gasolina. A diferença é que esse investimento pode mudar a direção do seu negócio.</p>
+            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', marginTop: 4 }}>Menos do que um tanque de gasolina. A diferença é que esse investimento pode mudar a direção do seu negócio.</p>
           </div>
         </section>
 
@@ -423,7 +423,7 @@ const Evento: React.FC = () => {
               <p style={{ fontSize: 40, fontWeight: 900, color: 'var(--amber)', marginBottom: 4 }}>
                 $62
               </p>
-              <p style={{ fontSize: 13, color: 'var(--text-faint)', marginBottom: 28 }}>
+              <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', marginBottom: 28 }}>
                 Jantar + bebida inclusos
               </p>
 
@@ -448,7 +448,7 @@ const Evento: React.FC = () => {
 
               <div style={{ display: 'flex', justifyContent: 'center', gap: 24, flexWrap: 'wrap', marginTop: 16 }}>
                 {['50 vagas limitadas', 'Jantar incluso', 'Networking exclusivo'].map((item, i) => (
-                  <span key={i} style={{ fontSize: 11, color: 'var(--text-faint)', display: 'flex', alignItems: 'center', gap: 4 }}>
+                  <span key={i} style={{ fontSize: 11, color: 'rgba(255,255,255,0.5)', display: 'flex', alignItems: 'center', gap: 4 }}>
                     <span style={{ color: 'var(--emerald)' }}>✓</span> {item}
                   </span>
                 ))}
