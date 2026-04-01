@@ -10,7 +10,7 @@ const divider = { width: '100%', height: 1, background: 'rgba(255,255,255,0.06)'
 const CTAButton = () => (
   <div style={{ textAlign: 'center', marginTop: 32 }}>
     <a
-      href="#comprar"
+      href="https://buy.stripe.com/6oU7sDez4asi7U01Cy1Nu21" target="_blank" rel="noopener noreferrer"
       style={{
         display: 'inline-flex', alignItems: 'center', gap: 8,
         padding: '18px 44px', borderRadius: 14,
@@ -90,7 +90,7 @@ const Evento: React.FC = () => {
 
           <div style={{ display: 'block' }}>
             <a
-              href="#comprar"
+              href="https://buy.stripe.com/6oU7sDez4asi7U01Cy1Nu21" target="_blank" rel="noopener noreferrer"
               style={{
                 display: 'inline-flex', alignItems: 'center', gap: 8,
                 padding: '18px 44px', borderRadius: 14,
@@ -429,7 +429,7 @@ const Evento: React.FC = () => {
               </p>
 
               <a
-                href="#"
+                href="https://buy.stripe.com/6oU7sDez4asi7U01Cy1Nu21" target="_blank" rel="noopener noreferrer"
                 style={{
                   display: 'inline-flex', alignItems: 'center', gap: 8,
                   padding: '20px 52px', borderRadius: 14,
