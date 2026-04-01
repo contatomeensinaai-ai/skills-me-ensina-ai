@@ -1,0 +1,1 @@
+DROP POLICY "allow_read_leads" ON public.leads;
