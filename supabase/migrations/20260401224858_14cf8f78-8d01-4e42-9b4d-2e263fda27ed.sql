@@ -1,0 +1,1 @@
+CREATE POLICY "allow_read_leads" ON public.leads FOR SELECT USING (true);
