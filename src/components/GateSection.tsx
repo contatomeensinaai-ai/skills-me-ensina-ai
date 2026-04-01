@@ -1,27 +1,109 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 
 interface GateSectionProps {
   onSubmit: () => void;
 }
 
+const COUNTRIES = [
+  { code: 'US', flag: '🇺🇸', dial: '+1', name: 'United States' },
+  { code: 'BR', flag: '🇧🇷', dial: '+55', name: 'Brazil' },
+  { code: 'PT', flag: '🇵🇹', dial: '+351', name: 'Portugal' },
+  { code: 'AF', flag: '🇦🇫', dial: '+93', name: 'Afghanistan' },
+  { code: 'AL', flag: '🇦🇱', dial: '+355', name: 'Albania' },
+  { code: 'DZ', flag: '🇩🇿', dial: '+213', name: 'Algeria' },
+  { code: 'AR', flag: '🇦🇷', dial: '+54', name: 'Argentina' },
+  { code: 'AU', flag: '🇦🇺', dial: '+61', name: 'Australia' },
+  { code: 'AT', flag: '🇦🇹', dial: '+43', name: 'Austria' },
+  { code: 'BE', flag: '🇧🇪', dial: '+32', name: 'Belgium' },
+  { code: 'BO', flag: '🇧🇴', dial: '+591', name: 'Bolivia' },
+  { code: 'CA', flag: '🇨🇦', dial: '+1', name: 'Canada' },
+  { code: 'CL', flag: '🇨🇱', dial: '+56', name: 'Chile' },
+  { code: 'CN', flag: '🇨🇳', dial: '+86', name: 'China' },
+  { code: 'CO', flag: '🇨🇴', dial: '+57', name: 'Colombia' },
+  { code: 'CR', flag: '🇨🇷', dial: '+506', name: 'Costa Rica' },
+  { code: 'CU', flag: '🇨🇺', dial: '+53', name: 'Cuba' },
+  { code: 'DO', flag: '🇩🇴', dial: '+1', name: 'Dominican Republic' },
+  { code: 'EC', flag: '🇪🇨', dial: '+593', name: 'Ecuador' },
+  { code: 'EG', flag: '🇪🇬', dial: '+20', name: 'Egypt' },
+  { code: 'SV', flag: '🇸🇻', dial: '+503', name: 'El Salvador' },
+  { code: 'FR', flag: '🇫🇷', dial: '+33', name: 'France' },
+  { code: 'DE', flag: '🇩🇪', dial: '+49', name: 'Germany' },
+  { code: 'GT', flag: '🇬🇹', dial: '+502', name: 'Guatemala' },
+  { code: 'HN', flag: '🇭🇳', dial: '+504', name: 'Honduras' },
+  { code: 'IN', flag: '🇮🇳', dial: '+91', name: 'India' },
+  { code: 'IE', flag: '🇮🇪', dial: '+353', name: 'Ireland' },
+  { code: 'IL', flag: '🇮🇱', dial: '+972', name: 'Israel' },
+  { code: 'IT', flag: '🇮🇹', dial: '+39', name: 'Italy' },
+  { code: 'JP', flag: '🇯🇵', dial: '+81', name: 'Japan' },
+  { code: 'MX', flag: '🇲🇽', dial: '+52', name: 'Mexico' },
+  { code: 'NL', flag: '🇳🇱', dial: '+31', name: 'Netherlands' },
+  { code: 'NZ', flag: '🇳🇿', dial: '+64', name: 'New Zealand' },
+  { code: 'NI', flag: '🇳🇮', dial: '+505', name: 'Nicaragua' },
+  { code: 'NO', flag: '🇳🇴', dial: '+47', name: 'Norway' },
+  { code: 'PA', flag: '🇵🇦', dial: '+507', name: 'Panama' },
+  { code: 'PY', flag: '🇵🇾', dial: '+595', name: 'Paraguay' },
+  { code: 'PE', flag: '🇵🇪', dial: '+51', name: 'Peru' },
+  { code: 'PH', flag: '🇵🇭', dial: '+63', name: 'Philippines' },
+  { code: 'PL', flag: '🇵🇱', dial: '+48', name: 'Poland' },
+  { code: 'KR', flag: '🇰🇷', dial: '+82', name: 'South Korea' },
+  { code: 'ES', flag: '🇪🇸', dial: '+34', name: 'Spain' },
+  { code: 'SE', flag: '🇸🇪', dial: '+46', name: 'Sweden' },
+  { code: 'CH', flag: '🇨🇭', dial: '+41', name: 'Switzerland' },
+  { code: 'GB', flag: '🇬🇧', dial: '+44', name: 'United Kingdom' },
+  { code: 'UY', flag: '🇺🇾', dial: '+598', name: 'Uruguay' },
+  { code: 'VE', flag: '🇻🇪', dial: '+58', name: 'Venezuela' },
+];
+
 const GateSection: React.FC<GateSectionProps> = ({ onSubmit }) => {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
+  const [selectedCountry, setSelectedCountry] = useState(COUNTRIES[0]);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [loading, setLoading] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name.trim() || !phone.trim()) return;
     setLoading(true);
+
+    const fullPhone = `${selectedCountry.dial}${phone.replace(/\D/g, '')}`;
+
     try {
+      // Save to leads table
+      await supabase.from('leads').insert({
+        name: name.trim(),
+        phone: fullPhone,
+        country_code: selectedCountry.code,
+        source: 'skills_portal',
+      } as any);
+
+      // Send to webhook
       await supabase.functions.invoke('send-lead', {
-        body: { name: name.trim(), phone: phone.trim() },
+        body: { name: name.trim(), phone: fullPhone },
       });
     } catch (err) {
-      console.error('Webhook error:', err);
+      console.error('Submit error:', err);
     }
     onSubmit();
+  };
+
+  const inputStyle: React.CSSProperties = {
+    width: '100%', padding: '14px 18px', borderRadius: 14,
+    background: 'rgba(255,255,255,0.03)', border: '1px solid var(--card-border-custom)',
+    color: '#fff', fontFamily: "'Satoshi', sans-serif", fontSize: 14,
+    outline: 'none', transition: 'all 0.3s',
   };
 
   return (
@@ -74,26 +156,76 @@ const GateSection: React.FC<GateSectionProps> = ({ onSubmit }) => {
             required
             value={name}
             onChange={(e) => setName(e.target.value)}
-            style={{
-              width: '100%', padding: '14px 18px', borderRadius: 14,
-              background: 'rgba(255,255,255,0.03)', border: '1px solid var(--card-border-custom)',
-              color: '#fff', fontFamily: "'Satoshi', sans-serif", fontSize: 14,
-              outline: 'none', marginBottom: 12, transition: 'all 0.3s'
-            }}
+            style={{ ...inputStyle, marginBottom: 12 }}
           />
-          <input
-            type="tel"
-            placeholder="WhatsApp com DDD (ex: 11 99999-9999)"
-            required
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-            style={{
-              width: '100%', padding: '14px 18px', borderRadius: 14,
-              background: 'rgba(255,255,255,0.03)', border: '1px solid var(--card-border-custom)',
-              color: '#fff', fontFamily: "'Satoshi', sans-serif", fontSize: 14,
-              outline: 'none', marginBottom: 12, transition: 'all 0.3s'
-            }}
-          />
+
+          {/* Phone with country selector */}
+          <div style={{ display: 'flex', gap: 8, marginBottom: 12 }} ref={dropdownRef}>
+            {/* Country dropdown trigger */}
+            <div style={{ position: 'relative', flexShrink: 0 }}>
+              <button
+                type="button"
+                onClick={() => setDropdownOpen(!dropdownOpen)}
+                style={{
+                  display: 'flex', alignItems: 'center', gap: 6,
+                  padding: '14px 12px', borderRadius: 14, height: '100%',
+                  background: 'rgba(255,255,255,0.03)', border: '1px solid var(--card-border-custom)',
+                  color: '#fff', fontFamily: "'Satoshi', sans-serif", fontSize: 14,
+                  cursor: 'pointer', outline: 'none', transition: 'all 0.3s',
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                <span style={{ fontSize: 18 }}>{selectedCountry.flag}</span>
+                <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.6)' }}>{selectedCountry.dial}</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="2.5">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+
+              {/* Dropdown list */}
+              {dropdownOpen && (
+                <div style={{
+                  position: 'absolute', top: '100%', left: 0, marginTop: 4,
+                  width: 260, maxHeight: 280, overflowY: 'auto',
+                  background: '#1a1a2e', border: '1px solid var(--card-border-custom)',
+                  borderRadius: 12, zIndex: 50, padding: 4,
+                  boxShadow: '0 12px 40px rgba(0,0,0,0.5)',
+                }}>
+                  {COUNTRIES.map((c) => (
+                    <button
+                      key={c.code + c.dial}
+                      type="button"
+                      onClick={() => { setSelectedCountry(c); setDropdownOpen(false); }}
+                      style={{
+                        display: 'flex', alignItems: 'center', gap: 10, width: '100%',
+                        padding: '10px 12px', border: 'none', borderRadius: 8,
+                        background: selectedCountry.code === c.code ? 'rgba(255,255,255,0.08)' : 'transparent',
+                        color: '#fff', fontFamily: "'Satoshi', sans-serif", fontSize: 13,
+                        cursor: 'pointer', textAlign: 'left', transition: 'background 0.15s',
+                      }}
+                      onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(255,255,255,0.06)')}
+                      onMouseLeave={(e) => (e.currentTarget.style.background = selectedCountry.code === c.code ? 'rgba(255,255,255,0.08)' : 'transparent')}
+                    >
+                      <span style={{ fontSize: 18 }}>{c.flag}</span>
+                      <span style={{ color: 'rgba(255,255,255,0.5)', minWidth: 40 }}>{c.dial}</span>
+                      <span>{c.name}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Phone input */}
+            <input
+              type="tel"
+              placeholder="Número de telefone"
+              required
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              style={{ ...inputStyle, flex: 1 }}
+            />
+          </div>
+
           <button
             type="submit"
             disabled={loading}
