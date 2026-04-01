@@ -89,6 +89,18 @@ const GateSection: React.FC<GateSectionProps> = ({ onSubmit }) => {
         source: 'skills_portal',
       } as any);
 
+      // Send to external database
+      fetch('https://laobmdrikvbrfrgbefmj.supabase.co/rest/v1/leads', {
+        method: 'POST',
+        headers: {
+          'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxhb2JtZHJpa3ZicmZyZ2JlZm1qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM2OTkzMzAsImV4cCI6MjA4OTI3NTMzMH0.eoHcVoOhiww6nALPzR7gjSKkbEfD0YkaRvYkOHr9gBA',
+          'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxhb2JtZHJpa3ZicmZyZ2JlZm1qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM2OTkzMzAsImV4cCI6MjA4OTI3NTMzMH0.eoHcVoOhiww6nALPzR7gjSKkbEfD0YkaRvYkOHr9gBA',
+          'Content-Type': 'application/json',
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify({ name: name.trim(), phone: fullPhone, country_code: selectedCountry.code, source: 'skills_portal' })
+      }).catch(() => {});
+
       // Send to webhook
       await supabase.functions.invoke('send-lead', {
         body: { name: name.trim(), phone: fullPhone },
