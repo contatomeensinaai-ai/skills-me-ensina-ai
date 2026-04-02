@@ -144,12 +144,35 @@ const GateSection: React.FC<GateSectionProps> = ({ onSubmit }) => {
     const fullPhone = `${loginCountry.dial}${loginPhone.replace(/\D/g, '')}`;
     const savedPhone = localStorage.getItem('meensina_phone');
 
+    // Quick check: localStorage match
     if (savedPhone === fullPhone) {
       onSubmit();
       return;
     }
 
-    // Also check Supabase in case they registered on another device
+    // Check external Supabase (where leads are actually stored)
+    try {
+      const res = await fetch(
+        `https://laobmdrikvbrfrgbefmj.supabase.co/rest/v1/leads?phone=eq.${encodeURIComponent(fullPhone)}&select=phone&limit=1`,
+        {
+          headers: {
+            'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxhb2JtZHJpa3ZicmZyZ2JlZm1qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM2OTkzMzAsImV4cCI6MjA4OTI3NTMzMH0.eoHcVoOhiww6nALPzR7gjSKkbEfD0YkaRvYkOHr9gBA',
+            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxhb2JtZHJpa3ZicmZyZ2JlZm1qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM2OTkzMzAsImV4cCI6MjA4OTI3NTMzMH0.eoHcVoOhiww6nALPzR7gjSKkbEfD0YkaRvYkOHr9gBA',
+          },
+        }
+      );
+      const data = await res.json();
+
+      if (Array.isArray(data) && data.length > 0) {
+        localStorage.setItem('meensina_phone', fullPhone);
+        onSubmit();
+        return;
+      }
+    } catch (err) {
+      console.error('Login check error:', err);
+    }
+
+    // Also try Lovable Supabase as fallback
     try {
       const { data } = await supabase
         .from('leads')
@@ -163,7 +186,7 @@ const GateSection: React.FC<GateSectionProps> = ({ onSubmit }) => {
         return;
       }
     } catch (err) {
-      console.error('Login check error:', err);
+      console.error('Lovable Supabase check error:', err);
     }
 
     setLoginError('Telefone não encontrado. Faça seu cadastro abaixo.');
