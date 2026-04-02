@@ -466,7 +466,7 @@ const GateSection: React.FC<GateSectionProps> = ({ onSubmit }) => {
           Já tenho cadastro
         </button>
 
-        <p style={{ fontSize: 11, color: 'var(--text-faint)', marginTop: 12, textAlign: 'center' }}>
+        <p className="text-destructive-foreground" style={{ fontSize: 11, marginTop: 12, textAlign: 'center' }}>
           Sem spam. Seus dados estão seguros.
         </p>
 
