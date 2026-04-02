@@ -342,24 +342,6 @@ const GateSection: React.FC<GateSectionProps> = ({ onSubmit }) => {
             Ainda não tenho cadastro
           </button>
 
-          {/* Event Mini */}
-          <div style={{ marginTop: 28, paddingTop: 24, borderTop: '1px solid var(--card-border-custom)' }}>
-            <div style={{
-              display: 'flex', alignItems: 'center', gap: 12,
-              padding: '14px 16px', borderRadius: 14,
-              background: 'var(--card-custom)', border: '1px solid var(--card-border-custom)'
-            }}>
-              <span style={{ color: 'var(--amber)', flexShrink: 0 }}>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                </svg>
-              </span>
-              <div>
-                <p style={{ fontSize: 12, fontWeight: 700, color: 'rgba(255,255,255,0.8)' }}>A Nova Virada da IA — 30 de Abril</p>
-                <p style={{ fontSize: 11, color: 'var(--text-muted-custom)' }}>Evento presencial em Framingham, MA. 50 vagas.</p>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     );
