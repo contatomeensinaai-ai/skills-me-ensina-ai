@@ -43,8 +43,8 @@
     --emerald: #10b981;
     --purple: #a78bfa;
     --cyan: #22d3ee;
-    --text-muted-custom: rgba(255, 255, 255, 0.45);
-    --text-faint: rgba(255, 255, 255, 0.2);
+    --text-muted-custom: rgba(255, 255, 255, 0.85);
+    --text-faint: rgba(255, 255, 255, 0.6);
     --card-custom: rgba(255, 255, 255, 0.025);
     --card-border-custom: rgba(255, 255, 255, 0.06);
     --card-hover: rgba(245, 158, 11, 0.04);
