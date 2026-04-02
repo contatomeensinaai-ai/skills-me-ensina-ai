@@ -61,12 +61,32 @@ const GateSection: React.FC<GateSectionProps> = ({ onSubmit }) => {
   const [selectedCountry, setSelectedCountry] = useState(COUNTRIES[0]);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [mode, setMode] = useState<'check' | 'register' | 'login'>('check');
+  const [loginPhone, setLoginPhone] = useState('');
+  const [loginCountry, setLoginCountry] = useState(COUNTRIES[0]);
+  const [loginError, setLoginError] = useState('');
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const loginDropdownRef = useRef<HTMLDivElement>(null);
+  const [loginDropdownOpen, setLoginDropdownOpen] = useState(false);
+
+  useEffect(() => {
+    // Check if user already has a saved phone
+    const savedPhone = localStorage.getItem('meensina_phone');
+    if (savedPhone) {
+      // Auto-login: user already registered before
+      setMode('login');
+    } else {
+      setMode('register');
+    }
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
         setDropdownOpen(false);
+      }
+      if (loginDropdownRef.current && !loginDropdownRef.current.contains(e.target as Node)) {
+        setLoginDropdownOpen(false);
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
@@ -108,7 +128,47 @@ const GateSection: React.FC<GateSectionProps> = ({ onSubmit }) => {
     } catch (err) {
       console.error('Submit error:', err);
     }
+
+    // Save phone to localStorage for future visits
+    localStorage.setItem('meensina_phone', fullPhone);
+    localStorage.setItem('meensina_name', name.trim());
     onSubmit();
+  };
+
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!loginPhone.trim()) return;
+    setLoading(true);
+    setLoginError('');
+
+    const fullPhone = `${loginCountry.dial}${loginPhone.replace(/\D/g, '')}`;
+    const savedPhone = localStorage.getItem('meensina_phone');
+
+    if (savedPhone === fullPhone) {
+      onSubmit();
+      return;
+    }
+
+    // Also check Supabase in case they registered on another device
+    try {
+      const { data } = await supabase
+        .from('leads')
+        .select('phone')
+        .eq('phone', fullPhone)
+        .limit(1) as any;
+
+      if (data && data.length > 0) {
+        localStorage.setItem('meensina_phone', fullPhone);
+        onSubmit();
+        return;
+      }
+    } catch (err) {
+      console.error('Login check error:', err);
+    }
+
+    setLoginError('Telefone não encontrado. Faça seu cadastro abaixo.');
+    setMode('register');
+    setLoading(false);
   };
 
   const inputStyle: React.CSSProperties = {
@@ -118,6 +178,171 @@ const GateSection: React.FC<GateSectionProps> = ({ onSubmit }) => {
     outline: 'none', transition: 'all 0.3s',
   };
 
+  const CountryDropdown = ({
+    country, setCountry, open, setOpen, ref: refProp
+  }: {
+    country: typeof COUNTRIES[0];
+    setCountry: (c: typeof COUNTRIES[0]) => void;
+    open: boolean;
+    setOpen: (v: boolean) => void;
+    ref: React.RefObject<HTMLDivElement | null>;
+  }) => (
+    <div style={{ position: 'relative', flexShrink: 0 }} ref={refProp}>
+      <button
+        type="button"
+        onClick={() => setOpen(!open)}
+        style={{
+          display: 'flex', alignItems: 'center', gap: 6,
+          padding: '14px 12px', borderRadius: 14, height: '100%',
+          background: 'rgba(255,255,255,0.03)', border: '1px solid var(--card-border-custom)',
+          color: '#fff', fontFamily: "'Satoshi', sans-serif", fontSize: 14,
+          cursor: 'pointer', outline: 'none', transition: 'all 0.3s',
+          whiteSpace: 'nowrap',
+        }}
+      >
+        <span style={{ fontSize: 18 }}>{country.flag}</span>
+        <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.6)' }}>{country.dial}</span>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="2.5">
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </button>
+      {open && (
+        <div style={{
+          position: 'absolute', top: '100%', left: 0, marginTop: 4,
+          width: 260, maxHeight: 280, overflowY: 'auto',
+          background: '#1a1a2e', border: '1px solid var(--card-border-custom)',
+          borderRadius: 12, zIndex: 50, padding: 4,
+          boxShadow: '0 12px 40px rgba(0,0,0,0.5)',
+        }}>
+          {COUNTRIES.map((c) => (
+            <button
+              key={c.code + c.dial}
+              type="button"
+              onClick={() => { setCountry(c); setOpen(false); }}
+              style={{
+                display: 'flex', alignItems: 'center', gap: 10, width: '100%',
+                padding: '10px 12px', border: 'none', borderRadius: 8,
+                background: country.code === c.code ? 'rgba(255,255,255,0.08)' : 'transparent',
+                color: '#fff', fontFamily: "'Satoshi', sans-serif", fontSize: 13,
+                cursor: 'pointer', textAlign: 'left', transition: 'background 0.15s',
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(255,255,255,0.06)')}
+              onMouseLeave={(e) => (e.currentTarget.style.background = country.code === c.code ? 'rgba(255,255,255,0.08)' : 'transparent')}
+            >
+              <span style={{ fontSize: 18 }}>{c.flag}</span>
+              <span style={{ color: 'rgba(255,255,255,0.5)', minWidth: 40 }}>{c.dial}</span>
+              <span>{c.name}</span>
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+
+  // LOGIN MODE — returning user
+  if (mode === 'login') {
+    return (
+      <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '40px 20px' }}>
+        <div className="animate-up" style={{ width: '100%', maxWidth: 480, textAlign: 'center' }}>
+          <span style={{
+            display: 'inline-flex', alignItems: 'center', gap: 6,
+            padding: '6px 14px', borderRadius: 100,
+            fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase',
+            background: 'var(--amber-dim)', border: '1px solid rgba(245,158,11,0.15)', color: 'var(--amber)'
+          }}>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <polyline points="4 17 10 11 4 5" /><line x1="12" y1="19" x2="20" y2="19" />
+            </svg>
+            Bem-vindo de volta
+          </span>
+
+          <h1 style={{
+            fontSize: 'clamp(28px, 5vw, 40px)', fontWeight: 900,
+            letterSpacing: '-0.03em', lineHeight: 1.1, margin: '20px 0 8px'
+          }}>
+            Já tem cadastro?
+          </h1>
+          <p style={{ fontSize: 16, fontWeight: 500, color: 'var(--text-muted-custom)', marginBottom: 28 }}>
+            Digite seu telefone para acessar as skills:
+          </p>
+
+          <form onSubmit={handleLogin}>
+            <div style={{ display: 'flex', gap: 8, marginBottom: 12 }}>
+              <CountryDropdown
+                country={loginCountry}
+                setCountry={setLoginCountry}
+                open={loginDropdownOpen}
+                setOpen={setLoginDropdownOpen}
+                ref={loginDropdownRef}
+              />
+              <input
+                type="tel"
+                placeholder="Seu telefone cadastrado"
+                required
+                value={loginPhone}
+                onChange={(e) => { setLoginPhone(e.target.value); setLoginError(''); }}
+                style={{ ...inputStyle, flex: 1 }}
+              />
+            </div>
+
+            {loginError && (
+              <p style={{ fontSize: 13, color: '#f87171', marginBottom: 12, textAlign: 'left' }}>
+                {loginError}
+              </p>
+            )}
+
+            <button
+              type="submit"
+              disabled={loading}
+              style={{
+                width: '100%', padding: '16px 24px', borderRadius: 14,
+                background: 'linear-gradient(135deg, var(--amber), var(--orange))',
+                color: '#000', fontFamily: "'Satoshi', sans-serif", fontSize: 14,
+                fontWeight: 800, letterSpacing: '0.04em', border: 'none', cursor: 'pointer',
+                display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
+                transition: 'all 0.3s', animation: 'glow 3s ease-in-out infinite'
+              }}
+            >
+              {loading ? 'Verificando...' : 'ACESSAR MINHAS SKILLS →'}
+            </button>
+          </form>
+
+          <button
+            type="button"
+            onClick={() => setMode('register')}
+            style={{
+              background: 'none', border: 'none', color: 'var(--amber)',
+              fontSize: 13, fontWeight: 600, cursor: 'pointer', marginTop: 20,
+              textDecoration: 'underline', fontFamily: "'Satoshi', sans-serif",
+            }}
+          >
+            Ainda não tenho cadastro
+          </button>
+
+          {/* Event Mini */}
+          <div style={{ marginTop: 28, paddingTop: 24, borderTop: '1px solid var(--card-border-custom)' }}>
+            <div style={{
+              display: 'flex', alignItems: 'center', gap: 12,
+              padding: '14px 16px', borderRadius: 14,
+              background: 'var(--card-custom)', border: '1px solid var(--card-border-custom)'
+            }}>
+              <span style={{ color: 'var(--amber)', flexShrink: 0 }}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                </svg>
+              </span>
+              <div>
+                <p style={{ fontSize: 12, fontWeight: 700, color: 'rgba(255,255,255,0.8)' }}>A Nova Virada da IA — 30 de Abril</p>
+                <p style={{ fontSize: 11, color: 'var(--text-muted-custom)' }}>Evento presencial em Framingham, MA. 50 vagas.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // REGISTER MODE — new user
   return (
     <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '40px 20px' }}>
       <div className="animate-up" style={{ width: '100%', maxWidth: 480, textAlign: 'center' }}>
@@ -172,62 +397,14 @@ const GateSection: React.FC<GateSectionProps> = ({ onSubmit }) => {
           />
 
           {/* Phone with country selector */}
-          <div style={{ display: 'flex', gap: 8, marginBottom: 12 }} ref={dropdownRef}>
-            {/* Country dropdown trigger */}
-            <div style={{ position: 'relative', flexShrink: 0 }}>
-              <button
-                type="button"
-                onClick={() => setDropdownOpen(!dropdownOpen)}
-                style={{
-                  display: 'flex', alignItems: 'center', gap: 6,
-                  padding: '14px 12px', borderRadius: 14, height: '100%',
-                  background: 'rgba(255,255,255,0.03)', border: '1px solid var(--card-border-custom)',
-                  color: '#fff', fontFamily: "'Satoshi', sans-serif", fontSize: 14,
-                  cursor: 'pointer', outline: 'none', transition: 'all 0.3s',
-                  whiteSpace: 'nowrap',
-                }}
-              >
-                <span style={{ fontSize: 18 }}>{selectedCountry.flag}</span>
-                <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.6)' }}>{selectedCountry.dial}</span>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="2.5">
-                  <polyline points="6 9 12 15 18 9" />
-                </svg>
-              </button>
-
-              {/* Dropdown list */}
-              {dropdownOpen && (
-                <div style={{
-                  position: 'absolute', top: '100%', left: 0, marginTop: 4,
-                  width: 260, maxHeight: 280, overflowY: 'auto',
-                  background: '#1a1a2e', border: '1px solid var(--card-border-custom)',
-                  borderRadius: 12, zIndex: 50, padding: 4,
-                  boxShadow: '0 12px 40px rgba(0,0,0,0.5)',
-                }}>
-                  {COUNTRIES.map((c) => (
-                    <button
-                      key={c.code + c.dial}
-                      type="button"
-                      onClick={() => { setSelectedCountry(c); setDropdownOpen(false); }}
-                      style={{
-                        display: 'flex', alignItems: 'center', gap: 10, width: '100%',
-                        padding: '10px 12px', border: 'none', borderRadius: 8,
-                        background: selectedCountry.code === c.code ? 'rgba(255,255,255,0.08)' : 'transparent',
-                        color: '#fff', fontFamily: "'Satoshi', sans-serif", fontSize: 13,
-                        cursor: 'pointer', textAlign: 'left', transition: 'background 0.15s',
-                      }}
-                      onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(255,255,255,0.06)')}
-                      onMouseLeave={(e) => (e.currentTarget.style.background = selectedCountry.code === c.code ? 'rgba(255,255,255,0.08)' : 'transparent')}
-                    >
-                      <span style={{ fontSize: 18 }}>{c.flag}</span>
-                      <span style={{ color: 'rgba(255,255,255,0.5)', minWidth: 40 }}>{c.dial}</span>
-                      <span>{c.name}</span>
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            {/* Phone input */}
+          <div style={{ display: 'flex', gap: 8, marginBottom: 12 }}>
+            <CountryDropdown
+              country={selectedCountry}
+              setCountry={setSelectedCountry}
+              open={dropdownOpen}
+              setOpen={setDropdownOpen}
+              ref={dropdownRef}
+            />
             <input
               type="tel"
               placeholder="Número de telefone"
@@ -253,7 +430,20 @@ const GateSection: React.FC<GateSectionProps> = ({ onSubmit }) => {
             {loading ? 'Liberando acesso...' : 'ACESSAR 9 SKILLS GRATUITAS →'}
           </button>
         </form>
-        <p style={{ fontSize: 11, color: 'var(--text-faint)', marginTop: 16, textAlign: 'center' }}>
+
+        <button
+          type="button"
+          onClick={() => setMode('login')}
+          style={{
+            background: 'none', border: 'none', color: 'var(--amber)',
+            fontSize: 13, fontWeight: 600, cursor: 'pointer', marginTop: 16,
+            textDecoration: 'underline', fontFamily: "'Satoshi', sans-serif",
+          }}
+        >
+          Já tenho cadastro
+        </button>
+
+        <p style={{ fontSize: 11, color: 'var(--text-faint)', marginTop: 12, textAlign: 'center' }}>
           Sem spam. Seus dados estão seguros.
         </p>
 
