@@ -366,7 +366,7 @@ const GateSection: React.FC<GateSectionProps> = ({ onSubmit }) => {
         }}>
           Skills Claude Code<br />para Empresários
         </h1>
-        <p style={{ fontSize: 16, fontWeight: 500, color: 'var(--text-muted-custom)', marginBottom: 24 }}>
+        <p style={{ fontSize: 16, fontWeight: 600, color: 'rgba(255,255,255,0.9)', marginBottom: 24 }}>
           Digite seus dados e receba acesso imediato:
         </p>
 
@@ -378,7 +378,7 @@ const GateSection: React.FC<GateSectionProps> = ({ onSubmit }) => {
             'Proposta comercial, orçamento, copy de anúncio, contratos e mais',
             'Como usar cada skill dentro do Claude Code'
           ].map((text, i) => (
-            <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 10, fontSize: 14, color: 'var(--text-muted-custom)', marginBottom: 12, lineHeight: 1.5 }}>
+            <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 10, fontSize: 14, color: 'rgba(255,255,255,0.85)', marginBottom: 12, lineHeight: 1.5 }}>
               <span style={{ color: 'var(--emerald)', fontSize: 16, flexShrink: 0, marginTop: 1 }}>✓</span>
               {text}
             </li>
