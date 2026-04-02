@@ -166,7 +166,7 @@ const PortalSection: React.FC = () => {
           </div>
         </section>
 
-        {/* 8 Skills */}
+        {/* 9 Skills */}
         <section className="animate-up delay-3" style={{ marginBottom: 48 }}>
           <SectionHeader
             icon={
@@ -175,7 +175,7 @@ const PortalSection: React.FC = () => {
               </svg>
             }
             iconColor="amber"
-            title="8 Skills Profissionais"
+            title="9 Skills Profissionais"
             hint="Clique para ver a skill completa"
           />
           <div style={{

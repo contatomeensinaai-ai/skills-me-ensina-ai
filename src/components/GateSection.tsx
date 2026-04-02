@@ -148,7 +148,7 @@ const GateSection: React.FC<GateSectionProps> = ({ onSubmit }) => {
         {/* Features */}
         <ul style={{ listStyle: 'none', textAlign: 'left', margin: '0 auto 28px', maxWidth: 380, padding: 0 }}>
           {[
-            '8 skills profissionais prontas para instalar',
+            '9 skills profissionais prontas para instalar',
             'Guia passo a passo para começar (mesmo sem saber nada de tecnologia)',
             'Proposta comercial, orçamento, copy de anúncio, contratos e mais',
             'Como usar cada skill dentro do Claude Code'
@@ -250,7 +250,7 @@ const GateSection: React.FC<GateSectionProps> = ({ onSubmit }) => {
               transition: 'all 0.3s', animation: 'glow 3s ease-in-out infinite'
             }}
           >
-            {loading ? 'Liberando acesso...' : 'ACESSAR 8 SKILLS GRATUITAS →'}
+            {loading ? 'Liberando acesso...' : 'ACESSAR 9 SKILLS GRATUITAS →'}
           </button>
         </form>
         <p style={{ fontSize: 11, color: 'var(--text-faint)', marginTop: 16, textAlign: 'center' }}>

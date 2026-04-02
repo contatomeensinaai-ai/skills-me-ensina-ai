@@ -195,4 +195,37 @@ Não precisa de pré-requisitos especiais.`,
 "Cria um update de projeto pro meu cliente sobre o andamento da reforma"`,
     aplicacao: 'Empresas com 5+ funcionários: manter comunicação organizada. Limpeza: updates semanais pra equipes de campo. Construção: reports de progresso de obra pro cliente.',
   },
+  {
+    icon: '🌐',
+    title: 'Site Profissional',
+    desc: 'Cria um site completo para sua empresa com design moderno, formulário de orçamento e programa de indicação de clientes.',
+    tags: ['Site', 'Indicação', 'Orçamento'],
+    substitui: 'Agência web / Programador freelancer',
+    custoSubstituto: '$800–5,000/projeto',
+    githubUrl: 'https://github.com/anthropics/skills/tree/main/skills/frontend-design',
+    comoInstalar: `No Claude Code, digite:
+
+/install-skill https://github.com/anthropics/skills/tree/main/skills/frontend-design
+
+Depois, use o prompt abaixo para criar seu site completo.
+Este skill usa a mesma base do Frontend Design, mas com instruções específicas para criar sites de negócios locais com programa de indicação.`,
+    comoUsar: `Cole este prompt no Claude Code:
+
+"Crie um site profissional completo para minha empresa de [TIPO DO NEGÓCIO].
+
+Nome da empresa: [NOME]
+Localização: [CIDADE, ESTADO]
+Serviços: [LISTE SEUS SERVIÇOS]
+Telefone: [SEU NÚMERO]
+
+O site deve ter:
+1. Página inicial profissional com botão de orçamento
+2. Seção de serviços com descrição
+3. Formulário de contato/orçamento
+4. Espaço para depoimentos de clientes
+5. Programa de indicação: cada cliente que indicar novos clientes ganha $50 de desconto, com link único por cliente para rastrear quem indicou
+6. Design moderno que funciona no celular
+7. Otimizado para Google (SEO)"`,
+    aplicacao: 'Limpeza: site com booking online e programa de indicação ($50 por indicação). Construção: portfolio de projetos + formulário de estimate. Estética: galeria de trabalhos + agendamento online. Qualquer negócio local: presença profissional na internet em horas, não semanas.',
+  },
 ];
