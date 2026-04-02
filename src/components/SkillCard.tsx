@@ -139,7 +139,7 @@ const SkillCard: React.FC<SkillCardProps> = ({ skill }) => {
             }}>
               <pre style={{
                 fontFamily: "'JetBrains Mono', monospace", fontSize: 11,
-                color: 'rgba(255,255,255,0.85)', whiteSpace: 'pre-wrap', lineHeight: 1.8
+                color: 'rgba(255,255,255,0.85)', whiteSpace: 'pre-wrap', wordBreak: 'break-all', lineHeight: 1.8
               }}>
                 {skill.comoInstalar}
               </pre>
@@ -184,7 +184,7 @@ const SkillCard: React.FC<SkillCardProps> = ({ skill }) => {
             }}>
               <pre style={{
                 fontFamily: "'JetBrains Mono', monospace", fontSize: 11,
-                color: 'rgba(255,255,255,0.85)', whiteSpace: 'pre-wrap', lineHeight: 1.8
+                color: 'rgba(255,255,255,0.85)', whiteSpace: 'pre-wrap', wordBreak: 'break-all', lineHeight: 1.8
               }}>
                 {skill.comoUsar}
               </pre>
