@@ -83,7 +83,7 @@ const SkillCard: React.FC<SkillCardProps> = ({ skill }) => {
           onClick={() => setIsOpen(!isOpen)}
           style={{
             display: 'inline-flex', alignItems: 'center', gap: 6,
-            fontSize: 12, fontWeight: 600, color: 'rgba(255,255,255,0.85)',
+            fontSize: 12, fontWeight: 600, color: '#ffffff',
             background: 'none', border: 'none', cursor: 'pointer',
             fontFamily: "'Satoshi', sans-serif", padding: 0, transition: 'color 0.3s'
           }}
