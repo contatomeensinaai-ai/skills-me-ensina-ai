@@ -228,4 +228,38 @@ O site deve ter:
 7. Otimizado para Google (SEO)"`,
     aplicacao: 'Limpeza: site com booking online e programa de indicação ($50 por indicação). Construção: portfolio de projetos + formulário de estimate. Estética: galeria de trabalhos + agendamento online. Qualquer negócio local: presença profissional na internet em horas, não semanas.',
   },
+  {
+    icon: '📊',
+    title: 'Dashboard de Gestão',
+    desc: 'Cria um dashboard completo para gerenciar seu negócio: métricas, calendário, tarefas, tráfego pago e leads. Visual premium de SaaS.',
+    tags: ['Dashboard', 'Métricas', 'Gestão'],
+    substitui: 'Agência de marketing / Analista de dados',
+    custoSubstituto: '$2,000–5,000/mês',
+    githubUrl: 'https://github.com/anthropics/skills/tree/main/skills/frontend-design',
+    comoInstalar: `No Claude Code, digite:
+
+/install-skill https://github.com/anthropics/skills/tree/main/skills/frontend-design
+
+Depois, use o prompt abaixo para criar seu dashboard completo.
+Este skill usa a base do Frontend Design com instruções específicas para criar dashboards de gestão de negócios.`,
+    comoUsar: `Cole este prompt no Claude Code:
+
+"Crie um dashboard de gestão completo para minha empresa de [TIPO DO NEGÓCIO].
+
+O dashboard deve ter:
+1. Página principal com KPIs (seguidores, posts, engajamento) com sparklines e variação percentual
+2. Kanban de tarefas com drag-and-drop (backlog, em produção, review, publicado)
+3. Calendário de conteúdo mensal com chips coloridos por plataforma
+4. Página de métricas com gráficos de crescimento por rede social
+5. Controle de tráfego pago (gasto, vendas, ROAS, CPA)
+6. Captura de leads com tabela e exportação CSV
+7. Barra de progresso para metas
+
+Use React, Tailwind CSS e shadcn/ui.
+Tema escuro premium com cores amber/gold.
+Cards com glass-morphism (backdrop-blur).
+Gráficos com gradient fill.
+Visual de SaaS premium."`,
+    aplicacao: 'Qualquer negócio: painel completo pra ver tudo num lugar só. Limpeza: acompanhar agendamentos e reviews. Construção: controlar projetos e orçamentos. Marketing: métricas de todas as redes sociais. Restaurante: pedidos, reservas e avaliações.',
+  },
 ];

@@ -175,7 +175,7 @@ const PortalSection: React.FC = () => {
               </svg>
             }
             iconColor="amber"
-            title="9 Skills Profissionais"
+            title="10 Skills Profissionais"
             hint="Clique para ver a skill completa"
           />
           <div style={{
