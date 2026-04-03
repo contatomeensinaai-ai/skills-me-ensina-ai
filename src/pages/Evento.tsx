@@ -85,7 +85,8 @@ const Evento: React.FC = () => {
             background: 'rgba(245,158,11,0.04)', border: '1px solid rgba(245,158,11,0.1)',
             marginBottom: 24
           }}>
-            <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.7)' }}>30 de Abril de 2026 | Boteco do Manolo | Framingham, MA</p>
+            <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.7)' }}>30 de Abril de 2026 | Recepção 6:30pm | Início 7:00pm</p>
+            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', marginTop: 4 }}>Boteco do Manolo | Framingham, MA</p>
           </div>
 
           <div style={{ display: 'block' }}>
@@ -418,8 +419,11 @@ const Evento: React.FC = () => {
               <h2 style={{ fontSize: 'clamp(24px, 4vw, 32px)', fontWeight: 900, letterSpacing: '-0.03em', marginBottom: 8 }}>
                 50 vagas. Uma noite. Uma decisão.
               </h2>
-              <p style={{ fontSize: 14, color: bodyText, marginBottom: 8 }}>
-                30 de Abril &bull; Boteco do Manolo &bull; Framingham, MA
+              <p style={{ fontSize: 14, color: bodyText, marginBottom: 4 }}>
+                30 de Abril &bull; Recepção 6:30pm &bull; Início 7:00pm
+              </p>
+              <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', marginBottom: 8 }}>
+                Boteco do Manolo &bull; Framingham, MA
               </p>
               <p style={{ fontSize: 40, fontWeight: 900, color: 'var(--amber)', marginBottom: 4 }}>
                 $62
