@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import fabioImg from '@/assets/fabio-borges.jpg';
 import { BookOpen, Monitor, Building2, HelpCircle, Mic, Eye, Map, CalendarCheck, MessageCircle, Users } from 'lucide-react';
 
@@ -11,6 +11,7 @@ const CTAButton = () => (
   <div style={{ textAlign: 'center', marginTop: 32 }}>
     <a
       href="https://buy.stripe.com/6oU7sDez4asi7U01Cy1Nu21" target="_blank" rel="noopener noreferrer"
+      onClick={() => { if (typeof window !== 'undefined' && (window as any).fbq) { (window as any).fbq('track', 'InitiateCheckout', { value: 62, currency: 'USD', content_name: 'A Nova Virada da IA' }); } }}
       style={{
         display: 'inline-flex', alignItems: 'center', gap: 8,
         padding: '18px 44px', borderRadius: 14,
@@ -45,6 +46,17 @@ const agendaItems = [
 ];
 
 const Evento: React.FC = () => {
+  useEffect(() => {
+    if (typeof window !== 'undefined' && (window as any).fbq) {
+      (window as any).fbq('track', 'ViewContent', {
+        content_name: 'A Nova Virada da IA',
+        content_type: 'product',
+        value: 62,
+        currency: 'USD',
+      });
+    }
+  }, []);
+
   return (
     <div style={{ minHeight: '100vh', position: 'relative' }}>
       <div className="atmosphere" />
@@ -92,6 +104,7 @@ const Evento: React.FC = () => {
           <div style={{ display: 'block' }}>
             <a
               href="https://buy.stripe.com/6oU7sDez4asi7U01Cy1Nu21" target="_blank" rel="noopener noreferrer"
+              onClick={() => { if (typeof window !== 'undefined' && (window as any).fbq) { (window as any).fbq('track', 'InitiateCheckout', { value: 62, currency: 'USD', content_name: 'A Nova Virada da IA' }); } }}
               style={{
                 display: 'inline-flex', alignItems: 'center', gap: 8,
                 padding: '18px 44px', borderRadius: 14,
@@ -434,6 +447,7 @@ const Evento: React.FC = () => {
 
               <a
                 href="https://buy.stripe.com/6oU7sDez4asi7U01Cy1Nu21" target="_blank" rel="noopener noreferrer"
+                onClick={() => { if (typeof window !== 'undefined' && (window as any).fbq) { (window as any).fbq('track', 'InitiateCheckout', { value: 62, currency: 'USD', content_name: 'A Nova Virada da IA' }); } }}
                 style={{
                   display: 'inline-flex', alignItems: 'center', gap: 8,
                   padding: '20px 52px', borderRadius: 14,
